@@ -1,28 +1,61 @@
 <html lang="en">
-<head>
-  <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!--Load jQuery-->
 
-  <title>Fresco Stake Pool</title>
+    <title>Fresco Stake Pool</title>
+
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/normalize.css" />
+  </head>
+
+  <body>
+    <!-- <canvas id="c"></canvas> -->
+
+    <div class="header-container">
+      <div class="maintenance-title">
+        Welcome to Fresco pool, the site is currently in development ;)
+      </div>
+    </div>
+
+    <br/> <br/>
+
+    <img class="cardano-logo" src="./src/cardano-ada-logo.png"/>
 
 
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/normalize.css">
 
-</head>
-
-<body>
-  <canvas id="c"></canvas>
-
-
-<div class="header-container">
-  <div class="maintenance-title">
-      Welcome to Fresco pool, the site is currently in development ;)
-  </div>
-</div>
+    
   
-</body>
-  
+
+
+
+
+    <div class="pool-details">
+      <div class="individual-info">
+        Pool adress.: <span id="pool-adress"></span>
+      </div>
+
+      <div class="individual-info">Tag: <span id="pool-tag"></span></div>
+
+      <div class="individual-info">
+        Total stake: <span id="pool-total-stake"></span>
+      </div>
+
+      <div class="individual-info">
+        More info on
+        <a
+          href="https://adapools.org/bd1d1aafead6f652f76f5921b4ffdb429d7eb9d5322d0f4700f4f70f997c5a82"
+          target="_blank"
+          >AdaPools</a
+        >.
+      </div>
+    </div>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+
+  </body>
+
   <script src="js/canvasScript.js"></script>
-  <script src = "js/adapools.js"></script>
-
+  <script src="js/adapools.js"></script>
 </html>

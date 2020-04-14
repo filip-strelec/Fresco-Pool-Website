@@ -5,7 +5,7 @@ canvas {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: -1;
   }
 
   div{
@@ -23,7 +23,29 @@ canvas {
   .maintenance-title{
       width: 100%;
       font-weight: 700;
-      padding: 30px 0 ;
+      padding: 30px 24px ;
       text-align: center;
       font-size: 24px;
   }
+
+  .pool-details{
+
+       padding: 30px 24px ;
+       text-align: center;
+       font-size: 18px;
+
+  }
+
+  .individual-info{
+      padding:8px;
+  }
+
+  .cardano-logo {
+    width:340px;
+    position: relative;
+    left: calc(50% - 170px);
+    margin-top: 16px;
+    transition: all 1s;
+    margin-bottom: 100px;
+
+}
