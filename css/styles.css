@@ -17,6 +17,7 @@ canvas {
   .header-container{
       display: flex;
       width: 100%;
+      pointer-events: none;
   }
 
   .maintenance-title{
