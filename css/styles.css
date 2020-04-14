@@ -33,11 +33,13 @@ canvas {
        padding: 30px 24px ;
        text-align: center;
        font-size: 18px;
+      
 
   }
 
   .individual-info{
       padding:8px;
+      overflow-wrap: break-word;
   }
 
   .cardano-logo {
@@ -48,4 +50,29 @@ canvas {
     transition: all 1s;
     margin-bottom: 100px;
 
+}
+
+body{
+    background: #08071d;
+    color: white;
+}
+
+.flex{
+
+    display: flex;
+}
+
+.specification-card-container{
+    
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0 16px 64px;
+  }
+
+.individual-card{
+
+    padding: 24px;
+    width: 33%;
+    text-align: center;
 }

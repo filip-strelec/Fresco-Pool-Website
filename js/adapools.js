@@ -7,6 +7,16 @@ console.log(data)
 $("#pool-adress").text(data.id)
 $("#pool-tag").text(data.tag)
 $("#pool-total-stake").text(data.total_stake)
+$("#pool-reward-value").text(data.rewards_value_for_stakers)
+$("#pool-tax-fixed").text(data.tax_fixed)
+$("#pool-last-epoch").text(data.last_epoch)
+$("#pool-roa").text(data.roa)
+$("#pool-roi").text(data.roi)
+
+
+
+
+
 
     });
 
