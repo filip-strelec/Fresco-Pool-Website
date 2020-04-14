@@ -16,7 +16,9 @@ canvas {
  
   .header-container{
       display: flex;
-      width: 100%;
+      width: 100%;,
+      user-select: none;
+      pointer-events: none;
 
   }
 
@@ -27,4 +29,5 @@ canvas {
       text-align: center;
       font-size: 24px;
       user-select: none;
+      pointer-events: none;
   }
