@@ -14,7 +14,7 @@ $("#pool-total-stake").text(data.total_stake)
 
     $(window).scroll(function(){
         var scrollPos = $(document).scrollTop();
-        console.log(scrollPos);
+        // console.log(scrollPos);
 
         $(".cardano-logo").css("transform", `rotate(${scrollPos}deg)`)
 
