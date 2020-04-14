@@ -42,9 +42,10 @@ canvas {
 
   .cardano-logo {
     width:340px;
-    position: absolute;
+    position: relative;
     left: calc(50% - 170px);
     margin-top: 16px;
     transition: all 1s;
+    margin-bottom: 100px;
 
 }
