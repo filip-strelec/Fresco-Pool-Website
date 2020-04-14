@@ -18,6 +18,7 @@ canvas {
       display: flex;
       width: 100%;
       pointer-events: none;
+      user-select: none;
   }
 
   .maintenance-title{
