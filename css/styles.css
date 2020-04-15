@@ -46,11 +46,27 @@ canvas {
     width:340px;
     position: relative;
     left: calc(50% - 170px);
-    margin-top: 16px;
+    margin-top: 24px;
     transition: all 1s;
     margin-bottom: 100px;
 
 }
+
+@media only screen and (max-width: 600px)  {
+
+    .cardano-logo {
+        width:30%;
+        margin-top: 16px;
+        left: calc(50% - 15%);
+      
+    
+    }
+
+
+}
+
+
+
 
 body{
     background: #08071d;
@@ -70,12 +86,44 @@ body{
     padding: 0 16px 64px;
   }
 
+
+
+
+
+
 .individual-card{
 
     padding: 24px;
     width: 33%;
     text-align: center;
 }
+
+
+
+
+@media only screen and (max-width: 600px)  {
+
+    .specification-card-container{
+    
+        flex-direction: column;
+  
+      }
+    
+
+
+
+.individual-card{
+
+ 
+    width: 100%;
+
+}
+
+      
+
+
+}
+
 
 a {
     color: #3CC8C8;
