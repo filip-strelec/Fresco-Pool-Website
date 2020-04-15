@@ -2,7 +2,7 @@ $.getJSON('https://adapools.org/cache/pools/bd1d1aafead6f652f76f5921b4ffdb429d7e
 
     // $.each( data, function( i, val ) { $( '#' + data.id + '_' + i ).text(val); });
 
-console.log(data)
+// console.log(data)
 
 $("#pool-adress").text(data.id)
 $("#pool-tag").text(data.tag)
@@ -22,12 +22,12 @@ $("#pool-roi").text(data.roi)
 
     //script for scroll
 
-    $(window).scroll(function(){
+    $(window).scroll(()=>{
         var scrollPos = $(document).scrollTop();
-        // console.log(scrollPos);
+        
 
         $(".cardano-logo").css("transform", `rotate(${scrollPos}deg)`)
-
+       
 
 
     });
