@@ -1,82 +1,90 @@
 canvas {
-    display: block;
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+div {
+  z-index: 1000;
+  position: relative;
+}
+
+.header-container {
+  display: flex;
+  width: 100%;
+  user-select: none;
+}
+
+.maintenance-title {
+  width: 100%;
+  font-weight: 700;
+  padding: 30px 24px;
+  text-align: center;
+  font-size: 24px;
+}
+
+.pool-details {
+  padding: 30px 24px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.individual-info {
+  padding: 8px;
+  overflow-wrap: break-word;
+}
+
+.cardano-logo {
+  width: 340px;
+  position: relative;
+  left: calc(50% - 170px);
+  margin-top: 24px;
+  transition: all 1s;
+  margin-bottom: 100px;
+}
+
+body {
+  background: #08071d;
+  color: white;
+}
+
+.flex {
+  display: flex;
+}
+
+.specification-card-container {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0 16px 64px;
+}
+
+.individual-card {
+  padding: 24px;
+  width: 33%;
+  text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .specification-card-container {
+    flex-direction: column;
   }
 
-  div{
-      z-index: 1000;
-      position: relative;
-  }
-
- 
-  .header-container{
-      display: flex;
-      width: 100%;
-      user-select: none;
-  }
-
-  .maintenance-title{
-      width: 100%;
-      font-weight: 700;
-      padding: 30px 24px ;
-      text-align: center;
-      font-size: 24px;
-  }
-
-  .pool-details{
-
-       padding: 30px 24px ;
-       text-align: center;
-       font-size: 18px;
-      
-
-  }
-
-  .individual-info{
-      padding:8px;
-      overflow-wrap: break-word;
+  .individual-card {
+    width: 100%;
   }
 
   .cardano-logo {
-    width:340px;
-    position: relative;
-    left: calc(50% - 170px);
+    width: 30%;
     margin-top: 16px;
-    transition: all 1s;
-    margin-bottom: 100px;
-
-}
-
-body{
-    background: #08071d;
-    color: white;
-}
-
-.flex{
-
-    display: flex;
-}
-
-.specification-card-container{
-    
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 0 16px 64px;
+    left: calc(50% - 15%);
   }
-
-.individual-card{
-
-    padding: 24px;
-    width: 33%;
-    text-align: center;
 }
 
 a {
-    color: #3CC8C8;
+  color: #3cc8c8;
 }
