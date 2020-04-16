@@ -38,15 +38,25 @@ div {
   overflow-wrap: break-word;
 }
 
-.cardano-logo {
-  width: 340px;
+.logo-container {
+  width: 480px;
   position: relative;
-  left: calc(50% - 170px);
-  margin-top: 24px;
+  left: calc(50% - 240px);
   transition: all 1s;
-  margin-bottom: 100px;
+  margin-bottom: 480px;
 }
 
+.logo_component{
+    width: 100%;
+    position:absolute;
+   
+    
+}
+
+.spinner{
+transition: 1s all;
+
+}
 body {
   background: #08071d;
   color: white;
@@ -78,10 +88,11 @@ body {
     width: 100%;
   }
 
-  .cardano-logo {
-    width: 30%;
-    margin-top: 16px;
-    left: calc(50% - 15%);
+  .logo-container {
+    width: 50%;
+    margin-top: 80px;
+    left: calc(50% - 25%);
+    margin-bottom:360px;
   }
 }
 

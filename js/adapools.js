@@ -26,7 +26,7 @@ $("#pool-roi").text(data.roi)
         var scrollPos = $(document).scrollTop();
         
 
-        $(".cardano-logo").css("transform", `rotate(${scrollPos}deg)`)
+        $(".spinner").css("transform", `rotate(${scrollPos*0.3}deg)`)
        
 
 
