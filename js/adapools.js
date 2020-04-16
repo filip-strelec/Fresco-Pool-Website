@@ -27,6 +27,8 @@ $("#pool-roi").text(data.roi)
         
 
         $(".spinner").css("transform", `rotate(${scrollPos*0.3}deg)`)
+        $(".logo_component").css("filter", `hue-rotate(${scrollPos*1}deg)`)
+
        
 
 
