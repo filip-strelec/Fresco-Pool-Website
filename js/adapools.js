@@ -26,8 +26,12 @@ $("#pool-roi").text(data.roi)
         var scrollPos = $(document).scrollTop();
         
 
-        $(".spinner").css("transform", `rotate(${scrollPos*0.3}deg)`)
-        $(".logo_component").css("filter", `hue-rotate(${scrollPos*1}deg)`)
+        $(".static_logo").css("transform", `rotate(${scrollPos*0.8}deg)`)
+        // $(".static_logo").css("filter", `hue-rotate(${scrollPos*1}deg)`)
+
+        // $(".logo_component").css("filter", `hue-rotate(${scrollPos*1}deg)`)
+        // $(".logo_component").css("filter", `grayscale(${scrollPos*0.1})`)
+
 
        
 
