@@ -18,12 +18,25 @@ $.getJSON(
 
 //script for scroll
 
-$(window).scroll(() => {
-  var scrollPos = $(document).scrollTop();
+$(document).ready(() => {
+  setTimeout(() => {
+    $(".spinner").css("transform", `rotate(90deg) scale(1)`);
 
-  $(".static_logo").css("transform", `rotate(${scrollPos * 0.3}deg)`);
-  // $(".static_logo").css("filter", `hue-rotate(${scrollPos*1}deg)`)
+    setTimeout(() => {
+      $(".spinner").css("transform", `rotate(0deg) scale(1)`);
 
-  // $(".logo_component").css("filter", `hue-rotate(${scrollPos*1}deg)`)
-  // $(".logo_component").css("filter", `grayscale(${scrollPos*0.1})`)
+      setTimeout(() => {
+        $(window).scroll(() => {
+          var scrollPos = $(document).scrollTop();
+
+          $(".static_logo").css("transform", `rotate(${scrollPos * 0.3}deg)`);
+          // $(".static_logo").css("filter", `hue-rotate(${scrollPos*1}deg)`)
+
+          // $(".logo_component").css("filter", `hue-rotate(${scrollPos*1}deg)`)
+          // $(".logo_component").css("filter", `grayscale(${scrollPos*0.1})`)
+        });
+      }, 500);
+
+    }, 510);
+  }, 200);
 });
