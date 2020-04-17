@@ -138,3 +138,7 @@ a {
   background-color: var(--dark-teal);
   color: var(--bg-black);
 }
+
+.more-info {
+  overflow-wrap: break-word;
+}
