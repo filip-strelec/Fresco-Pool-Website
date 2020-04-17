@@ -138,6 +138,7 @@ a {
 .individual-info {
   background-color: var(--dark-teal);
   color: var(--bg-black);
+  font-weight: 600;
 }
 
 .more-info {
