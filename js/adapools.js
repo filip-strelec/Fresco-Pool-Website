@@ -24,16 +24,18 @@ $(document).ready(() => {
 
     setTimeout(() => {
       $(".spinner").css("transform", `rotate(0deg) scale(1)`);
+
+      setTimeout(() => {
+        $(window).scroll(() => {
+          var scrollPos = $(document).scrollTop();
+
+          $(".static_logo").css("transform", `rotate(${scrollPos * 0.3}deg)`);
+          // $(".static_logo").css("filter", `hue-rotate(${scrollPos*1}deg)`)
+
+          // $(".logo_component").css("filter", `hue-rotate(${scrollPos*1}deg)`)
+          // $(".logo_component").css("filter", `grayscale(${scrollPos*0.1})`)
+        });
+      }, 1000);
     }, 1100);
   }, 900);
-});
-
-$(window).scroll(() => {
-  var scrollPos = $(document).scrollTop();
-
-  $(".static_logo").css("transform", `rotate(${scrollPos * 0.3}deg)`);
-  // $(".static_logo").css("filter", `hue-rotate(${scrollPos*1}deg)`)
-
-  // $(".logo_component").css("filter", `hue-rotate(${scrollPos*1}deg)`)
-  // $(".logo_component").css("filter", `grayscale(${scrollPos*0.1})`)
 });
