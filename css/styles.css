@@ -64,7 +64,7 @@ html {
   transition: 0.1s all;
 }
 .spinner {
-  transition: 1s all;
+  transition: 0.5s all;
 transform: rotate(90deg) scale(1.5);
 }
 body {
