@@ -65,6 +65,7 @@ html {
 }
 .spinner {
   transition: 1s all;
+transform: rotate(90deg) scale(1.5);
 }
 body {
   background: var(--bg-black);

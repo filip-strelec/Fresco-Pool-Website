@@ -18,6 +18,33 @@ $.getJSON(
 
 //script for scroll
 
+
+
+$( document ).ready(()=> {
+   
+    setTimeout(()=>{
+       
+
+
+   
+        $(".spinner").css("transform", `rotate(90deg) scale(1)`);
+
+        setTimeout(()=>{
+
+            $(".spinner").css("transform", `rotate(0deg) scale(1)`);
+
+
+        }, 1100)
+
+        },900)  
+    
+    
+
+
+
+    })
+
+
 $(window).scroll(() => {
   var scrollPos = $(document).scrollTop();
 
