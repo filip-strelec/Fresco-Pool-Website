@@ -20,11 +20,18 @@ $("#pool-roi").text(data.roi)
 
     });
 
+    let initialScroll = false;
+
     //script for scroll
 
     $(window).scroll(()=>{
         var scrollPos = $(document).scrollTop();
         
+        // if(!initialScroll){
+        //     transform: scale3d(-1.0, -1.0, 1.5);
+        //     $(".spinner").css("transform", `rotate(${scrollPos*0.8}deg)`)
+
+        // }
 
         $(".static_logo").css("transform", `rotate(${scrollPos*0.8}deg)`)
         // $(".static_logo").css("filter", `hue-rotate(${scrollPos*1}deg)`)
