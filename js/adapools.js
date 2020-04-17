@@ -35,8 +35,8 @@ $(document).ready(() => {
           // $(".logo_component").css("filter", `hue-rotate(${scrollPos*1}deg)`)
           // $(".logo_component").css("filter", `grayscale(${scrollPos*0.1})`)
         });
-      }, 500);
+      }, 600);
 
-    }, 510);
+    }, 750);
   }, 200);
 });
