@@ -65,7 +65,7 @@ html {
 }
 .spinner {
   transition: 0.5s all;
-transform: rotate(90deg) scale(1.5);
+  transform: rotate(90deg) scale(1.5);
 }
 body {
   background: var(--bg-black);
@@ -143,4 +143,16 @@ a {
 
 .more-info {
   overflow-wrap: break-word;
+}
+
+.history-container {
+  margin: auto;
+  text-align: center;
+  max-width: 250px;
+}
+#history-header {
+  color: var(--main-teal);
+}
+#history {
+  line-height: 2rem;
 }
