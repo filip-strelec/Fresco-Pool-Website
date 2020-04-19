@@ -140,6 +140,11 @@ a {
 .individual-info {
   background-color: var(--dark-teal);
   color: var(--bg-black);
+  font-weight: 600;
+}
+
+.more-info {
+  overflow-wrap: break-word;
 }
 
 .history-container {
@@ -152,4 +157,5 @@ a {
 }
 #history {
   line-height: 2rem;
+  margin-bottom: 32px;
 }
