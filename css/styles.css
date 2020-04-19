@@ -101,6 +101,24 @@ body {
   word-wrap: break-word;
 }
 
+
+@media (max-width: 1055px) {
+
+  .specification-card-container {
+    flex-direction: column;
+  }
+
+  .logo-container {
+    width: 50%;
+    margin-top: 80px;
+    left: calc(50% - 25%);
+    margin-bottom: 620px;
+  }
+
+}
+
+
+
 @media (max-width: 768px) {
   .specification-card-container {
     flex-direction: column;
@@ -117,6 +135,11 @@ body {
     margin-bottom: 360px;
   }
 }
+
+
+
+
+
 
 a {
   color: var(--main-teal);
