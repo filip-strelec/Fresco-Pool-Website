@@ -81,11 +81,13 @@ body {
   justify-content: space-around;
   align-items: flex-start;
   padding: 0 16px 64px;
+  max-width: 70vw;
+  margin: auto;
 }
 
 .individual-card {
   padding: 24px;
-  min-width: 33%;
+  min-width: 25%;
   text-align: center;
   font-size: 1.3rem;
 }
