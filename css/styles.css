@@ -65,7 +65,7 @@ html {
 }
 .spinner {
   transition: 0.5s all;
-transform: rotate(90deg) scale(1.5);
+  transform: rotate(90deg) scale(1.5);
 }
 body {
   background: var(--bg-black);
@@ -81,11 +81,13 @@ body {
   justify-content: space-around;
   align-items: flex-start;
   padding: 0 16px 64px;
+  max-width: 70vw;
+  margin: auto;
 }
 
 .individual-card {
   padding: 24px;
-  min-width: 33%;
+  min-width: 25%;
   text-align: center;
   font-size: 1.3rem;
 }
@@ -138,4 +140,22 @@ a {
 .individual-info {
   background-color: var(--dark-teal);
   color: var(--bg-black);
+  font-weight: 600;
+}
+
+.more-info {
+  overflow-wrap: break-word;
+}
+
+.history-container {
+  margin: auto;
+  text-align: center;
+  max-width: 250px;
+}
+#history-header {
+  color: var(--main-teal);
+}
+#history {
+  line-height: 2rem;
+  margin-bottom: 32px;
 }
