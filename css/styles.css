@@ -90,6 +90,7 @@ body {
   min-width: 25%;
   text-align: center;
   font-size: 1.3rem;
+  width: fit-content;
 }
 .individual-card .card-header {
   min-height: 70px;
