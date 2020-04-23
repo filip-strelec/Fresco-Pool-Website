@@ -22,7 +22,9 @@ $.getJSON(
 ).done(function (data) {
   $.each(data, function (i, item) {
     if (data[i].hasOwnProperty("epochSlots")) {
+    
       if (data[i].epochSlots == null) {
+ 
         $history =
           "Epoch " +
           data[i].epoch +
@@ -33,16 +35,37 @@ $.getJSON(
           "<br />" +
           $history;
       } else {
+        if(data[i].blocks !=0){
         $history =
-          "Epoch " +
+
+         "<div class='epoch'>"+ "Epoch " +
           data[i].epoch +
           " - " +
           data[i].epochSlots +
           "/" +
           data[i].blocks +
-          " blocks" +
-          "<br />" +
-          $history;
+          " blocks" +  (data[i].epochSlots === data[i].blocks ? (  `<div class="perfect">\uD83C\uDF1F</div>`):(""))+"</div>"+
+          $history ;
+        
+        }
+
+        else{
+          $history =
+
+          "<div class='epoch'>"+ "Epoch " +
+           data[i].epoch +
+           " - " +
+           data[i].epochSlots +
+           "/" +
+           data[i].blocks +
+           " blocks</div>" +  
+           $history ;
+
+
+
+
+
+        }
       }
     }
   });
