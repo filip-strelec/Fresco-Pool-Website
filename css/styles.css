@@ -182,3 +182,16 @@ a {
 iframe {
   border: 0.1rem solid var(--main-teal);
 }
+
+.epoch{
+
+position: relative;
+}
+
+.perfect {
+
+  position: absolute;
+  top: 0;
+  right: 10px;
+
+}
