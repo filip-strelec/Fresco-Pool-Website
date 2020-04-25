@@ -16,6 +16,15 @@ $.getJSON(
   }
 );
 
+
+$.getJSON(
+  "https://min-api.cryptocompare.com/data/pricemulti?fsyms=Ada&tsyms=BTC,USD,EUR&api_key=da5c2209128482ded3f5dabbe7260d828b351b7a62c6fc18a5f41fc8f336f12e",
+  (data) => {
+$(".price-holder").text(`${data.ADA.USD} USD`);
+  }
+);
+
+
 let $history = "";
 $.getJSON(
   "https://pooltool.s3-us-west-2.amazonaws.com/8e4d2a3/pools/bd1d1aafead6f652f76f5921b4ffdb429d7eb9d5322d0f4700f4f70f997c5a82/epochstats.json"
@@ -75,6 +84,14 @@ $.getJSON(
 //script for scroll
 
 $(document).ready(() => {
+
+  $(".ada-button").click(()=>{
+    $(".ada-button").toggleClass("toggle-show-ada-button");
+    $(".price-container").toggleClass("show-ada");
+    
+  });
+
+
   setTimeout(() => {
     $(".spinner").css("transform", `rotate(90deg) scale(1)`);
 

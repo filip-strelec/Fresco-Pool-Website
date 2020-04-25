@@ -142,6 +142,7 @@ a {
 }
 
 .grid-header {
+  text-align: center;
   background-color: var(--bg-light-black);
   height: 2rem;
   line-height: 2rem;
@@ -183,15 +184,55 @@ iframe {
   border: 0.1rem solid var(--main-teal);
 }
 
-.epoch{
-
-position: relative;
+.epoch {
+  position: relative;
 }
 
 .perfect {
-
   position: absolute;
   top: 0;
   right: 10px;
+}
 
+.price-container {
+  width: 178px;
+  position: fixed;
+  /* transform: translateX(-178px); */
+  transition: 0.3s all;
+  transform: translateX(-180px);
+  z-index: 1000;
+}
+
+.ada-graph {
+  filter: hue-rotate(140deg);
+}
+
+.current-price {
+  text-align: center;
+  padding: 16px 0;
+  font-weight: bold;
+  
+}
+
+.ada-button {
+  transition: 0.3s all;
+ 
+  position: absolute;
+  top: 0;
+  cursor: pointer;
+  left: 180px;
+  width: 40px;
+  border-radius: 44px;
+  height: 40px;
+  background-color: var(--dark-teal);
+  
+}
+
+.show-ada{
+  transform: translateX(0px);
+}
+
+.toggle-show-ada-button{
+
+  filter: drop-shadow(0px 0px 4px var(--main-teal));
 }
