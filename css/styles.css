@@ -241,3 +241,10 @@ iframe {
 
   filter: drop-shadow(0px 0px 4px var(--main-teal));
 }
+
+.api-link {
+
+  color: black;
+  text-decoration: none;
+
+}
