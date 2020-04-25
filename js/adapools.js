@@ -8,9 +8,9 @@ $.getJSON(
     $("#pool-adress").text(data.id);
     $("#pool-tag").text(data.tag);
     $("#pool-total-stake").text(data.total_stake);
-    $("#pool-reward-value").text(data.rewards_value_for_stakers);
+    $("#pool-reward-value").text(data.lifetime_stakers);
     $("#pool-tax-fixed").text(data.tax_fixed);
-    $("#pool-last-epoch").text(data.last_epoch);
+    $("#pool-last-epoch").text(data.share + " %");
     $("#pool-roa").text(data.roa);
     $("#pool-roi").text(data.roi);
   }
@@ -20,7 +20,7 @@ $.getJSON(
 $.getJSON(
   "https://min-api.cryptocompare.com/data/pricemulti?fsyms=Ada&tsyms=BTC,USD,EUR&api_key=da5c2209128482ded3f5dabbe7260d828b351b7a62c6fc18a5f41fc8f336f12e",
   (data) => {
-$(".price-holder").text(`${data.ADA.USD} USD`);
+    $(".price-holder").text(`${data.ADA.USD} USD`);
   }
 );
 
@@ -31,9 +31,9 @@ $.getJSON(
 ).done(function (data) {
   $.each(data, function (i, item) {
     if (data[i].hasOwnProperty("epochSlots")) {
-    
+
       if (data[i].epochSlots == null) {
- 
+
         $history =
           "Epoch " +
           data[i].epoch +
@@ -44,31 +44,31 @@ $.getJSON(
           "<br />" +
           $history;
       } else {
-        if(data[i].blocks !=0){
-        $history =
-
-         "<div class='epoch'>"+ "Epoch " +
-          data[i].epoch +
-          " - " +
-          data[i].epochSlots +
-          "/" +
-          data[i].blocks +
-          " blocks" +  (data[i].epochSlots === data[i].blocks ? (  `<div class="perfect">\uD83C\uDF1F</div>`):(""))+"</div>"+
-          $history ;
-        
-        }
-
-        else{
+        if (data[i].blocks != 0) {
           $history =
 
-          "<div class='epoch'>"+ "Epoch " +
-           data[i].epoch +
-           " - " +
-           data[i].epochSlots +
-           "/" +
-           data[i].blocks +
-           " blocks</div>" +  
-           $history ;
+            "<div class='epoch'>" + "Epoch " +
+            data[i].epoch +
+            " - " +
+            data[i].epochSlots +
+            "/" +
+            data[i].blocks +
+            " blocks" + (data[i].epochSlots === data[i].blocks ? (`<div class="perfect">\uD83C\uDF1F</div>`) : ("")) + "</div>" +
+            $history;
+
+        }
+
+        else {
+          $history =
+
+            "<div class='epoch'>" + "Epoch " +
+            data[i].epoch +
+            " - " +
+            data[i].epochSlots +
+            "/" +
+            data[i].blocks +
+            " blocks</div>" +
+            $history;
 
 
 
@@ -85,10 +85,10 @@ $.getJSON(
 
 $(document).ready(() => {
 
-  $(".ada-button").click(()=>{
+  $(".ada-button").click(() => {
     $(".ada-button").toggleClass("toggle-show-ada-button");
     $(".price-container").toggleClass("show-ada");
-    
+
   });
 
 
@@ -109,6 +109,6 @@ $(document).ready(() => {
           // $(".logo_component").css("filter", `grayscale(${scrollPos*0.1})`)
         });
       }, 700);
-    },900);
+    }, 900);
   }, 200);
 });
