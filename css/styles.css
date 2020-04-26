@@ -204,7 +204,8 @@ iframe {
 }
 
 .ada-graph {
-  filter: hue-rotate(140deg);
+  /* filter: hue-rotate(140deg); */
+  filter:brightness(0);
 }
 
 .current-price {
