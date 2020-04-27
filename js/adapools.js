@@ -1,5 +1,20 @@
 
 
+
+
+const epochDescription=(epoch, description)=>{
+
+  epochContainer.forEach(element => {
+
+    if(element.innerHTML.includes(epoch))    element.innerHTML=`${element.innerHTML}<div class="block-description">${description}</div>`
+
+
+});
+
+}
+
+
+
 $.getJSON(
   "https://adapools.org/cache/pools/bd1d1aafead6f652f76f5921b4ffdb429d7eb9d5322d0f4700f4f70f997c5a82.json",
   (data) => {
@@ -29,6 +44,7 @@ $(".price-holder").html(`<a class="api-link" href="https://min-api.cryptocompare
 
 
 let $history = "";
+let epochContainer="";
 $.getJSON(
   "https://pooltool.s3-us-west-2.amazonaws.com/8e4d2a3/pools/bd1d1aafead6f652f76f5921b4ffdb429d7eb9d5322d0f4700f4f70f997c5a82/epochstats.json"
 ).done(function (data) {
@@ -38,13 +54,12 @@ $.getJSON(
       if (data[i].epochSlots == null) {
 
         $history =
-          "Epoch " +
+        "<div class='epoch'>" + "Epoch " +
           data[i].epoch +
           " - 0" +
           "/" +
           data[i].blocks +
-          " blocks" +
-          "<br />" +
+          " blocks</div>" +
           $history;
       } else {
         if (data[i].blocks != 0) {
@@ -82,6 +97,24 @@ $.getJSON(
     }
   });
   $("#history").html($history);
+  epochContainer=document.querySelectorAll(".epoch");
+
+
+  //ADD EPOCH DESCRIPTION
+  epochDescription("Epoch 134",`
+  VENUS LOST ITS FIRST HEIGHT BATTLE <BR/>(1 WIN: 1 LOOSE) AT THE MOMENT
+  <BR/>
+  [ VENUS ] You lost! 😤
+  <BR/>
+  ⚔️ Height battle: STKH vs VENUS
+  <BR/>
+  ⏱ Slot: 134.34103 vs 134.34126
+  <BR/>
+  🧱 Height: 474307`);
+
+
+
+
 });
 
 //script for scroll
@@ -115,3 +148,5 @@ $(document).ready(() => {
     }, 900);
   }, 200);
 });
+
+
