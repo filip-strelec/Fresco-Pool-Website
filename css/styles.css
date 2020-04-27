@@ -171,6 +171,8 @@ a {
 #history {
   line-height: 2rem;
   margin-bottom: 32px;
+  text-align: left;
+  padding-left: 40px;
 }
 
 .video-container {
@@ -190,6 +192,7 @@ iframe {
 
 .perfect {
   position: absolute;
+  display: inline-block;
   top: 0;
   right: 68px;
 }
@@ -215,8 +218,6 @@ iframe {
   
 }
 
-
-
 .ada-button {
   transition: 0.3s all;
  
@@ -230,9 +231,6 @@ iframe {
   background-color: var(--dark-teal);
   
 }
-
-
-
 
 .show-ada{
   transform: translateX(0px);
