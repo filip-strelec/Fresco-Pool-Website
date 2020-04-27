@@ -37,8 +37,8 @@ $.getJSON(
 $.getJSON(
   "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=Ada&tsyms=BTC,USD,EUR&api_key=da5c2209128482ded3f5dabbe7260d828b351b7a62c6fc18a5f41fc8f336f12e",
   (data) => {
-
-    $(".price-holder").html(`<a class="api-link" href="https://min-api.cryptocompare.com/" target="_blank">${data.RAW.ADA.USD.PRICE} USD</a>`);
+    
+$(".price-holder").html(`<a class="api-link" href="https://min-api.cryptocompare.com/" target="_blank">${data.RAW.ADA.USD.PRICE} USD</a>`);
   }
 );
 
@@ -54,7 +54,6 @@ $.getJSON(
       if (data[i].epochSlots == null) {
 
         $history =
-<<<<<<< HEAD
         "<div class='epoch'>" + "Epoch " +
           data[i].epoch +
           " - 0" +
@@ -62,15 +61,37 @@ $.getJSON(
           data[i].blocks +
           " blocks</div>" +
           $history;
-=======
-          "Epoch " + data[i].epoch + " - 0" + "/" + data[i].blocks + " blocks" + "<br />" + $history;
->>>>>>> 91775972e672943801aacd7adb5fe994fd23892f
       } else {
         if (data[i].blocks != 0) {
-          $history = "Epoch " + data[i].epoch + " - " + data[i].blocks + "/" + data[i].epochSlots + " blocks " +  ((data[i].epochSlots === data[i].blocks || data[i].blocks > data[i].epochSlots) ? (`<span>🌟</span>`) : ("")) + "<br />" + $history;
+          $history =
+
+            "<div class='epoch'>" + "Epoch " +
+            data[i].epoch +
+            " - " +
+            data[i].epochSlots +
+            "/" +
+            data[i].blocks +
+            " blocks" + (data[i].epochSlots === data[i].blocks ? (`<div class="perfect">\uD83C\uDF1F</div>`) : ("")) + "</div>" +
+            $history;
+
         }
+
         else {
-          $history = "Epoch " + data[i].epoch + " - " + data[i].blocks + "/" + data[i].epochSlots + " blocks" + "<br />" + $history;
+          $history =
+
+            "<div class='epoch'>" + "Epoch " +
+            data[i].epoch +
+            " - " +
+            data[i].epochSlots +
+            "/" +
+            data[i].blocks +
+            " blocks</div>" +
+            $history;
+
+
+
+
+
         }
       }
     }
@@ -99,6 +120,7 @@ $.getJSON(
 //script for scroll
 
 $(document).ready(() => {
+
   $(".ada-button").click(() => {
     $(".ada-button").toggleClass("toggle-show-ada-button");
     $(".price-container").toggleClass("show-ada");
