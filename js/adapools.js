@@ -1,5 +1,20 @@
 
 
+
+
+const epochDescription=(epoch, description)=>{
+
+  epochContainer.forEach(element => {
+
+    if(element.innerHTML.includes(epoch))    element.innerHTML=`${element.innerHTML}<div class="block-description">${description}</div>`
+
+
+});
+
+}
+
+
+
 $.getJSON(
   "https://adapools.org/cache/pools/bd1d1aafead6f652f76f5921b4ffdb429d7eb9d5322d0f4700f4f70f997c5a82.json",
   (data) => {
@@ -22,13 +37,14 @@ $.getJSON(
 $.getJSON(
   "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=Ada&tsyms=BTC,USD,EUR&api_key=da5c2209128482ded3f5dabbe7260d828b351b7a62c6fc18a5f41fc8f336f12e",
   (data) => {
-
-    $(".price-holder").html(`<a class="api-link" href="https://min-api.cryptocompare.com/" target="_blank">${data.RAW.ADA.USD.PRICE} USD</a>`);
+    
+$(".price-holder").html(`<a class="api-link" href="https://min-api.cryptocompare.com/" target="_blank">${data.RAW.ADA.USD.PRICE} USD</a>`);
   }
 );
 
 
 let $history = "";
+let epochContainer="";
 $.getJSON(
   "https://pooltool.s3-us-west-2.amazonaws.com/8e4d2a3/pools/bd1d1aafead6f652f76f5921b4ffdb429d7eb9d5322d0f4700f4f70f997c5a82/epochstats.json"
 ).done(function (data) {
@@ -38,23 +54,73 @@ $.getJSON(
       if (data[i].epochSlots == null) {
 
         $history =
-          "Epoch " + data[i].epoch + " - 0" + "/" + data[i].blocks + " blocks" + "<br />" + $history;
+        "<div class='epoch'>" + "Epoch " +
+          data[i].epoch +
+          " - 0" +
+          "/" +
+          data[i].blocks +
+          " blocks</div>" +
+          $history;
       } else {
         if (data[i].blocks != 0) {
-          $history = "Epoch " + data[i].epoch + " - " + data[i].blocks + "/" + data[i].epochSlots + " blocks " +  ((data[i].epochSlots === data[i].blocks || data[i].blocks > data[i].epochSlots) ? (`<span>🌟</span>`) : ("")) + "<br />" + $history;
+          $history =
+
+            "<div class='epoch'>" + "Epoch " +
+            data[i].epoch +
+            " - " +
+            data[i].epochSlots +
+            "/" +
+            data[i].blocks +
+            " blocks" + (data[i].epochSlots === data[i].blocks ? (`<div class="perfect">\uD83C\uDF1F</div>`) : ("")) + "</div>" +
+            $history;
+
         }
+
         else {
-          $history = "Epoch " + data[i].epoch + " - " + data[i].blocks + "/" + data[i].epochSlots + " blocks" + "<br />" + $history;
+          $history =
+
+            "<div class='epoch'>" + "Epoch " +
+            data[i].epoch +
+            " - " +
+            data[i].epochSlots +
+            "/" +
+            data[i].blocks +
+            " blocks</div>" +
+            $history;
+
+
+
+
+
         }
       }
     }
   });
   $("#history").html($history);
+  epochContainer=document.querySelectorAll(".epoch");
+
+
+  //ADD EPOCH DESCRIPTION
+  epochDescription("Epoch 134",`
+  VENUS LOST ITS FIRST HEIGHT BATTLE <BR/>(1 WIN: 1 LOOSE) AT THE MOMENT
+  <BR/>
+  [ VENUS ] You lost! 😤
+  <BR/>
+  ⚔️ Height battle: STKH vs VENUS
+  <BR/>
+  ⏱ Slot: 134.34103 vs 134.34126
+  <BR/>
+  🧱 Height: 474307`);
+
+
+
+
 });
 
 //script for scroll
 
 $(document).ready(() => {
+
   $(".ada-button").click(() => {
     $(".ada-button").toggleClass("toggle-show-ada-button");
     $(".price-container").toggleClass("show-ada");
@@ -82,3 +148,5 @@ $(document).ready(() => {
     }, 900);
   }, 200);
 });
+
+

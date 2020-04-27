@@ -162,7 +162,7 @@ a {
 .history-container {
   margin: auto;
   text-align: center;
-  max-width: 250px;
+  max-width: 350px;
 }
 #history-header {
   color: var(--main-teal);
@@ -171,8 +171,6 @@ a {
 #history {
   line-height: 2rem;
   margin-bottom: 32px;
-  text-align: left;
-  padding-left: 40px;
 }
 
 .video-container {
@@ -192,9 +190,8 @@ iframe {
 
 .perfect {
   position: absolute;
-  display: inline-block;
   top: 0;
-  right: 10px;
+  right: 68px;
 }
 
 .price-container {
@@ -218,6 +215,8 @@ iframe {
   
 }
 
+
+
 .ada-button {
   transition: 0.3s all;
  
@@ -231,6 +230,9 @@ iframe {
   background-color: var(--dark-teal);
   
 }
+
+
+
 
 .show-ada{
   transform: translateX(0px);
@@ -246,4 +248,9 @@ iframe {
   color: black;
   text-decoration: none;
 
+}
+
+.block-description {
+  border: var(--main-teal) 2px solid;
+  border-radius: 16px;
 }
