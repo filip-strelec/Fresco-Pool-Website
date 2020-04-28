@@ -33,7 +33,7 @@ $.getJSON("https://pooltool.s3-us-west-2.amazonaws.com/8e4d2a3/pools/bd1d1aafead
 //epochstats.json  - iz ovog total rewards i performance history i ROI
 let $history = "";
 let $rewards = 0;
-let $roi = 0;
+let $roi =0;
 let $epochCount = 0;
 let $averageStakePerEpoch = 0;
 $.getJSON(
