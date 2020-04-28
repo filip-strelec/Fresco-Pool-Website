@@ -186,6 +186,15 @@ iframe {
   border: 0.1rem solid var(--main-teal);
 }
 
+
+@media only screen and (max-width: 670px) {
+  iframe {
+   width: 75%;
+   height: 350px;
+  }
+  
+}
+
 .epoch {
   position: relative;
 }
