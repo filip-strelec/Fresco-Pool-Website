@@ -190,11 +190,8 @@ iframe {
   position: relative;
 }
 
-.perfect {
-  position: absolute;
-  display: inline-block;
-  top: 0;
-  right: 10px;
+.perfect-star {
+ filter: hue-rotate(136deg);
 }
 
 .price-container {
