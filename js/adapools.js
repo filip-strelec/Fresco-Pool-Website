@@ -48,7 +48,11 @@ $.getJSON(
           "Epoch " + data[i].epoch + " - 0" + "/" + data[i].blocks + " blocks" + "<br />" + $history;
       } else {
         if (data[i].blocks != 0) {
+
           $history = "Epoch " + data[i].epoch + " - " + data[i].blocks + "/" + data[i].epochSlots + " blocks " + ((data[i].epochSlots === data[i].blocks || data[i].blocks > data[i].epochSlots) ? (`<span>🌟</span>`) : ("")) + "<br />" + $history;
+
+          $history = "Epoch " + data[i].epoch + " - " + data[i].blocks + "/" + data[i].epochSlots + " blocks " +  ((data[i].epochSlots === data[i].blocks || data[i].blocks > data[i].epochSlots) ? (`<span>🌟</span>`) : ("")) + "<br />" + $history;
+
         }
         else {
           $history = "Epoch " + data[i].epoch + " - " + data[i].blocks + "/" + data[i].epochSlots + " blocks" + "<br />" + $history;
