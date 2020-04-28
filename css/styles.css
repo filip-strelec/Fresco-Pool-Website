@@ -164,7 +164,7 @@ a {
   text-align: center;
   max-width: 250px;
 }
-#history-header {
+#history-header, #video-header {
   color: var(--main-teal);
   margin-top: 0;
 }
