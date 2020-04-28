@@ -23,7 +23,8 @@ $.getJSON(
 );
 //livestats.json - iz ovog ide live stake, i lifetime blocks, a izgleda ovak {"livestake": 8733730395034, "updatedAt": 1588084002, "epochblocks": 2, "lifetimeblocks": 11, "lastBlockEpoch": 136}
 
-$.getJSON("https://pooltool.s3-us-west-2.amazonaws.com/8e4d2a3/pools/bd1d1aafead6f652f76f5921b4ffdb429d7eb9d5322d0f4700f4f70f997c5a82/livestats.json").done(function (data) {
+$.getJSON("https://pooltool.s3-us-west-2.amazonaws.com/8e4d2a3/pools/bd1d1aafead6f652f76f5921b4ffdb429d7eb9d5322d0f4700f4f70f997c5a82/livestats.json").done(function (data)
+{
   let $liveStake = data.livestake; //in lovelaces
   $liveStake = ($liveStake / 1000000 / 1000000).toFixed(2); // in million ADA
   let $lifetimeBlocks = data.lifetimeblocks;
