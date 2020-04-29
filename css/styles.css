@@ -107,9 +107,9 @@ body {
   }
 
   .logo-container {
-    width: 50%;
+    width: 80%;
     margin-top: 80px;
-    left: calc(50% - 25%);
+    left: calc(50% - 40%);
     margin-bottom: 620px;
   }
 }
@@ -117,10 +117,12 @@ body {
 @media (max-width: 768px) {
   .specification-card-container {
     flex-direction: column;
+    padding-top: 240px;
   }
 
   .individual-card {
     width: 100%;
+    padding:unset;
   }
 
   .logo-container {
@@ -190,7 +192,7 @@ iframe {
 @media only screen and (max-width: 670px) {
   iframe {
    width: 75%;
-   height: 350px;
+   height: 300px;
   }
   
 }
