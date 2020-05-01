@@ -12,6 +12,33 @@
     document.querySelector("#pool-roi").innerHTML = data.roi;
   }
 ); */
+//livestats.json - iz ovog ide live stake, i lifetime blocks, a izgleda ovak {"livestake": 8733730395034, "updatedAt": 1588084002, "epochblocks": 2, "lifetimeblocks": 11, "lastBlockEpoch": 136}
+
+async function getLiveStats(){
+  let response = await fetch("https://pooltool.s3-us-west-2.amazonaws.com/8e4d2a3/pools/bd1d1aafead6f652f76f5921b4ffdb429d7eb9d5322d0f4700f4f70f997c5a82/livestats.json",{
+    method: 'GET',
+    // headers: {
+    //   'Content-Type': 'application/json;charset=utf-8',
+      
+    // },
+  });
+
+  if (response.ok) { // if HTTP-status is 200-299
+    // get the response body (the method explained below)
+    let json = await response.json();
+    console.log(json)
+    let $liveStake = json.livestake; //in lovelace
+      let $lifetimeBlocks = json.lifetimeblocks;
+      $liveStake = ($liveStake / 1000000 / 1000000).toFixed(2); //in million ADA
+      $("#pool-total-stake").html($liveStake + " M");
+      $("#pool-total-blocks").html($lifetimeBlocks);
+  } else {
+    console.log("HTTP-Error: " + response.status);
+  }
+  
+
+}
+
 
 
 $.getJSON(
@@ -22,13 +49,13 @@ $.getJSON(
   }
 );
 //livestats.json - iz ovog ide live stake, i lifetime blocks, a izgleda ovak {"livestake": 8733730395034, "updatedAt": 1588084002, "epochblocks": 2, "lifetimeblocks": 11, "lastBlockEpoch": 136}
-$.getJSON("https://pooltool.s3-us-west-2.amazonaws.com/8e4d2a3/pools/bd1d1aafead6f652f76f5921b4ffdb429d7eb9d5322d0f4700f4f70f997c5a82/livestats.json").done((data) => {
-  let $liveStake = data.livestake; //in lovelace
-  let $lifetimeBlocks = data.lifetimeblocks;
-  $liveStake = ($liveStake / 1000000 / 1000000).toFixed(2); //in million ADA
-  $("#pool-total-stake").html($liveStake + " M");
-  $("#pool-total-blocks").html($lifetimeBlocks);
-})
+// $.getJSON("https://pooltool.s3-us-west-2.amazonaws.com/8e4d2a3/pools/bd1d1aafead6f652f76f5921b4ffdb429d7eb9d5322d0f4700f4f70f997c5a82/livestats.json").done((data) => {
+//   let $liveStake = data.livestake; //in lovelace
+//   let $lifetimeBlocks = data.lifetimeblocks;
+//   $liveStake = ($liveStake / 1000000 / 1000000).toFixed(2); //in million ADA
+//   $("#pool-total-stake").html($liveStake + " M");
+//   $("#pool-total-blocks").html($lifetimeBlocks);
+// })
 
 //epochstats.json  - iz ovog total rewards i performance history i ROI
 let $history = "";
@@ -81,6 +108,7 @@ $(document).ready(() => {
 
   });
 
+  getLiveStats();
 
   setTimeout(() => {
     $(".spinner").css("transform", `rotate(90deg) scale(1)`);
