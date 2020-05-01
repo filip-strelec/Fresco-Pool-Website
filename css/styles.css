@@ -110,7 +110,9 @@ body {
     width: 80%;
     margin-top: 80px;
     left: calc(50% - 40%);
-    margin-bottom: 620px;
+    margin-bottom: 100px;
+    overflow: hidden;
+    height: 690px;
   }
 }
 
@@ -126,7 +128,9 @@ body {
   }
 
   .logo-container {
-    margin-bottom: 360px;
+    margin-bottom: 20px;
+    overflow:hidden;
+    height:500px;
   }
 }
 
