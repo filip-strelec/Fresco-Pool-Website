@@ -119,7 +119,7 @@ body {
 @media (max-width: 768px) {
   .specification-card-container {
     flex-direction: column;
-    padding-top: 180px;
+    padding-top: 50px;
   }
 
   .individual-card {
