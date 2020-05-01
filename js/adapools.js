@@ -33,7 +33,7 @@ async function getLiveStats(){
       $("#pool-total-stake").html($liveStake + " M");
       $("#pool-total-blocks").html($lifetimeBlocks);
   } else {
-    alert("HTTP-Error: " + response.status);
+    console.log("HTTP-Error: " + response.status);
   }
   
 
