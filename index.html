@@ -1,175 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:ital,wght@0,400;1,400;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- google font roboto + sans serif-->
+    <!--Load jQuery-->
+    <script src="js/adapools.js"></script>
 
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta charset="utf-8" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:ital,wght@0,400;1,400;1,900&display=swap"
-    rel="stylesheet" />
-  <!-- google font roboto + sans serif-->
-  <!--Load jQuery-->
-  <script src="js/adapools.js"></script>
+    <title>Fresco Stake Pool</title>
 
-  <title>Fresco Stake Pool </title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="shortcut icon" type="image/jpg" href="./src/favicon.ico" />
+  </head>
 
-  <link rel="stylesheet" href="css/styles.css" />
-  <link rel="stylesheet" href="css/normalize.css" />
-  <link rel="shortcut icon" type="image/jpg" href="./src/favicon.ico" />
-</head>
+  <body>
+    <!-- <canvas id="c"></canvas> -->
 
-<body>
-  <!-- <canvas id="c"></canvas> -->
-
-  <div class="header-container">
-    <div class="maintenance-title">
-      <h1>FRESCO STAKE POOL</h1>
-    </div>
-  </div>
-
-  <div class="price-container">
-    <div class="grid-header">Current Price</div>
-    <div class="individual-info current-price price-holder"></div>
-    <div class="grid-header">Graph (7 days)</div>
-    <div class="graph-container individual-info current-price"> <img
-        src="https://s2.coinmarketcap.com/generated/sparklines/web/7d/usd/2010.png" class="ada-graph" alt="ada graph" />
-    </div>
-    <img class="ada-button" src="/src/adaSymbol.png" alt="Ada">
-  </div>
-
-  <div class="logo-container">
-    <img class="logo_component spinner" src="./src/spinning_dynamic.png" alt="logo spinner" />
-    <img class="logo_component static_logo" src="./src/spinning_static.png" alt="logo static" />
-  </div>
-  <main>
-    <div class="specification-card-container flex">
-      <div class="server-spec individual-card">
-        <div>
-          <div class="card-header">
-            <h2>SERVER INFORMATION</h2>
-          </div>
-          <p>
-            Fresco pool is operated on Digital Ocean Droplets offering 99.99%
-            server uptime. Our server is located in Singapore, and running on
-            Ubuntu 18.04.
-          </p>
-        </div>
-      </div>
-
-      <div class="individual-card server-location">
-        <div>
-          <div class="card-header">
-            <h2>STAKE POOL INFORMATION</h2>
-          </div>
-          <p>
-            Our stake pool offers no fees, which means that 100% of rewards
-            are distributed to the delegators. To ensure reliability of our
-            nodes, we run the latest version of Jormungandr and JorManager.
-          </p>
-        </div>
-      </div>
-
-      <div class="individual-card about-us">
-        <div>
-          <div class="card-header">
-            <h2>ABOUT US</h2>
-          </div>
-          <p>
-            We are two dudes from Croatia, although one of us lives in the UK.
-            Follow us on
-            <a href="https://twitter.com/VenusFrescoPool" target="_blank">Twitter</a>
-            and
-            <a href="https://www.instagram.com/fresco_pool/" target="_blank">Instagram</a>, or get in touch with us
-            directly via our
-            <a href="https://t.me/frescopool" target="_blank">Telegram</a> group.
-          </p>
-        </div>
+    <div class="header-container">
+      <div class="maintenance-title">
+        <h1>FRESCO STAKE POOL</h1>
+        <h2 class="retired">is now <strong>RETIRED</strong></h2>
+        <h2 class="retired">
+          Thank you to all our delegators over the last 2 months. We are working
+          on preparing our Shelley Haskell nodes for operation on the main net.
+          Please follow our
+          <a href="https://twitter.com/VenusFrescoPool" target="_blank"
+            >Twitter</a
+          >
+          for updates!
+        </h2>
       </div>
     </div>
-    <div class="video-container">
-      <h2 id="video-header">Video Introduction</h2>
-      <iframe width="640" height="420" src="https://www.youtube.com/embed/ofd1e0looTk"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    <div class="price-container">
+      <div class="grid-header">Current Price</div>
+      <div class="individual-info current-price price-holder"></div>
+      <div class="grid-header">Graph (7 days)</div>
+      <div class="graph-container individual-info current-price">
+        <img
+          src="https://s2.coinmarketcap.com/generated/sparklines/web/7d/usd/2010.png"
+          class="ada-graph"
+          alt="ada graph"
+        />
+      </div>
+      <img class="ada-button" src="/src/adaSymbol.png" alt="Ada" />
     </div>
 
-    <div class="pool-details">
-      <div class="more-info">
-        Stake Pool Address:
-        <a href="https://shelleyexplorer.cardano.org/en/stake-pool/bd1d1aafead6f652f76f5921b4ffdb429d7eb9d5322d0f4700f4f70f997c5a82/"
-          target="_blank">bd1d1aafead6f652f76f5921b4ffdb429d7eb9d5322d0f4700f4f70f997c5a82</a>
+    <div class="logo-container">
+      <img
+        class="logo_component spinner"
+        src="./src/spinning_dynamic.png"
+        alt="logo spinner"
+      />
+      <img
+        class="logo_component static_logo"
+        src="./src/spinning_static.png"
+        alt="logo static"
+      />
+    </div>
+    <main>
+      <div class="specification-card-container flex">
+        <div class="server-spec individual-card">
+          <div>
+            <div class="card-header">
+              <h2>SERVER INFORMATION</h2>
+            </div>
+            <p>
+              Fresco pool is operated on Digital Ocean Droplets offering 99.99%
+              server uptime. Our server is located in Singapore, and running on
+              Ubuntu 18.04.
+            </p>
+          </div>
+        </div>
+
+        <div class="individual-card server-location">
+          <div>
+            <div class="card-header">
+              <h2>STAKE POOL INFORMATION</h2>
+            </div>
+            <p>
+              Our stake pool offers no fees, which means that 100% of rewards
+              are distributed to the delegators. To ensure reliability of our
+              nodes, we run the latest version of Jormungandr and JorManager.
+            </p>
+          </div>
+        </div>
+
+        <div class="individual-card about-us">
+          <div>
+            <div class="card-header">
+              <h2>ABOUT US</h2>
+            </div>
+            <p>
+              We are two dudes from Croatia, although one of us lives in the UK.
+              Follow us on
+              <a href="https://twitter.com/VenusFrescoPool" target="_blank"
+                >Twitter</a
+              >
+              and
+              <a href="https://www.instagram.com/fresco_pool/" target="_blank"
+                >Instagram</a
+              >, or get in touch with us directly via our
+              <a href="https://t.me/frescopool" target="_blank">Telegram</a>
+              group.
+            </p>
+          </div>
+        </div>
       </div>
-      <div class="info-grid">
-        <div class="grid-element">
-          <div class="grid-header">
-            <h3>Ticker</h3>
-          </div>
-          <div class="individual-info">VENUS</div>
-        </div>
+      <div class="video-container">
+        <h2 id="video-header">Video Introduction</h2>
+        <iframe
+          width="640"
+          height="420"
+          src="https://www.youtube.com/embed/ofd1e0looTk"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
 
-        <div class="grid-element">
-          <div class="grid-header">
-            <h3>Live Stake</h3>
-          </div>
-          <div class="individual-info">
-            <span id="pool-total-stake"></span>
-          </div>
+      <div class="pool-details">
+        <div class="more-info">
+          Stake Pool Address:
+          <a
+            href="https://shelleyexplorer.cardano.org/en/stake-pool/bd1d1aafead6f652f76f5921b4ffdb429d7eb9d5322d0f4700f4f70f997c5a82/"
+            target="_blank"
+            >bd1d1aafead6f652f76f5921b4ffdb429d7eb9d5322d0f4700f4f70f997c5a82</a
+          >
         </div>
+        <div class="info-grid">
+          <div class="grid-element">
+            <div class="grid-header">
+              <h3>Ticker</h3>
+            </div>
+            <div class="individual-info">VENUS</div>
+          </div>
 
-        <div class="grid-element">
-          <div class="grid-header">
-            <h3>Lifetime Rewards</h3>
+          <div class="grid-element">
+            <div class="grid-header">
+              <h3>Live Stake</h3>
+            </div>
+            <div class="individual-info">
+              <span id="pool-total-stake"></span>
+            </div>
           </div>
-          <div class="individual-info">
-            <span id="pool-reward-value"></span>
-          </div>
-        </div>
 
-        <div class="grid-element">
-          <div class="grid-header">
-            <h3>Fees</h3>
+          <div class="grid-element">
+            <div class="grid-header">
+              <h3>Lifetime Rewards</h3>
+            </div>
+            <div class="individual-info">
+              <span id="pool-reward-value"></span>
+            </div>
           </div>
-          <div class="individual-info">
-            Fixed: <span id="pool-tax-fixed"></span>0 ADA | Tax:
-            <span id="pool-tax">0%</span>
-          </div>
-        </div>
 
-        <div class="grid-element">
-          <div class="grid-header">
-            <h3>Lifetime Blocks</h3>
+          <div class="grid-element">
+            <div class="grid-header">
+              <h3>Fees</h3>
+            </div>
+            <div class="individual-info">
+              Fixed: <span id="pool-tax-fixed"></span>0 ADA | Tax:
+              <span id="pool-tax">0%</span>
+            </div>
           </div>
-          <div class="individual-info">
-            <span id="pool-total-blocks"></span>
+
+          <div class="grid-element">
+            <div class="grid-header">
+              <h3>Lifetime Blocks</h3>
+            </div>
+            <div class="individual-info">
+              <span id="pool-total-blocks"></span>
+            </div>
           </div>
-        </div>
-        <!-- <div class="individual-info">
+          <!-- <div class="individual-info">
         ROA: <span id="pool-roa"></span>
         </div> -->
 
-        <div class="grid-element">
-          <div class="grid-header">
-            <h3>ROI (annualized)</h3>
-          </div>
-          <div class="individual-info">
-            <span id="pool-roi"></span>
+          <div class="grid-element">
+            <div class="grid-header">
+              <h3>ROI (annualized)</h3>
+            </div>
+            <div class="individual-info">
+              <span id="pool-roi"></span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="more-info">
-        More info available on
-        <a href="https://adapools.org/bd1d1aafead6f652f76f5921b4ffdb429d7eb9d5322d0f4700f4f70f997c5a82"
-          target="_blank">AdaPools</a>
-        and
-        <a href="https://pooltool.io/pool/bd1d1aafead6f652f76f5921b4ffdb429d7eb9d5322d0f4700f4f70f997c5a82/history"
-          target="_blank">PoolTool</a>.
+        <div class="more-info">
+          More information available on
+          <a
+            href="https://adapools.org/bd1d1aafead6f652f76f5921b4ffdb429d7eb9d5322d0f4700f4f70f997c5a82"
+            target="_blank"
+            >AdaPools</a
+          >
+          and
+          <a
+            href="https://pooltool.io/pool/bd1d1aafead6f652f76f5921b4ffdb429d7eb9d5322d0f4700f4f70f997c5a82/history"
+            target="_blank"
+            >PoolTool</a
+          >.
+        </div>
       </div>
-    </div>
-    <div class="history-container">
-      <h2 id="history-header">Performance history</h2>
-      <div id="history"></div>
-    </div>
-  </main>
-</body>
-
+      <div class="history-container">
+        <h2 id="history-header">Performance history</h2>
+        <div id="history"></div>
+      </div>
+    </main>
+  </body>
 </html>

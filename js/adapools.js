@@ -14,38 +14,38 @@
 ); */
 //livestats.json - iz ovog ide live stake, i lifetime blocks, a izgleda ovak {"livestake": 8733730395034, "updatedAt": 1588084002, "epochblocks": 2, "lifetimeblocks": 11, "lastBlockEpoch": 136}
 
-async function getLiveStats(){
-  let response = await fetch("https://pooltool.s3-us-west-2.amazonaws.com/8e4d2a3/pools/bd1d1aafead6f652f76f5921b4ffdb429d7eb9d5322d0f4700f4f70f997c5a82/livestats.json",{
-    method: 'GET',
-    // headers: {
-    //   'Content-Type': 'application/json;charset=utf-8',
-      
-    // },
-  });
+async function getLiveStats() {
+  let response = await fetch(
+    "https://pooltool.s3-us-west-2.amazonaws.com/8e4d2a3/pools/bd1d1aafead6f652f76f5921b4ffdb429d7eb9d5322d0f4700f4f70f997c5a82/livestats.json",
+    {
+      method: "GET",
+      // headers: {
+      //   'Content-Type': 'application/json;charset=utf-8',
 
-  if (response.ok) { // if HTTP-status is 200-299
+      // },
+    }
+  );
+
+  if (response.ok) {
+    // if HTTP-status is 200-299
     // get the response body (the method explained below)
     let json = await response.json();
-    console.log(json)
     let $liveStake = json.livestake; //in lovelace
-      let $lifetimeBlocks = json.lifetimeblocks;
-      $liveStake = ($liveStake / 1000000 / 1000000).toFixed(2); //in million ADA
-      $("#pool-total-stake").html($liveStake + " M");
-      $("#pool-total-blocks").html($lifetimeBlocks);
+    let $lifetimeBlocks = json.lifetimeblocks;
+    $liveStake = ($liveStake / 1000000 / 1000000).toFixed(2); //in million ADA
+    $("#pool-total-stake").html($liveStake + " M");
+    $("#pool-total-blocks").html($lifetimeBlocks);
   } else {
     console.log("HTTP-Error: " + response.status);
   }
-  
-
 }
-
-
 
 $.getJSON(
   "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=Ada&tsyms=BTC,USD,EUR&api_key=da5c2209128482ded3f5dabbe7260d828b351b7a62c6fc18a5f41fc8f336f12e",
   (data) => {
-
-    $(".price-holder").html(`<a class="api-link" href="https://min-api.cryptocompare.com/" target="_blank">${data.RAW.ADA.USD.PRICE} USD</a>`);
+    $(".price-holder").html(
+      `<a class="api-link" href="https://min-api.cryptocompare.com/" target="_blank">${data.RAW.ADA.USD.PRICE} USD</a>`
+    );
   }
 );
 //livestats.json - iz ovog ide live stake, i lifetime blocks, a izgleda ovak {"livestake": 8733730395034, "updatedAt": 1588084002, "epochblocks": 2, "lifetimeblocks": 11, "lastBlockEpoch": 136}
@@ -71,16 +71,44 @@ $.getJSON(
       //history
       if (data[i].epochSlots == null) {
         $history =
-          "Epoch " + data[i].epoch + " - 0" + "/" + data[i].blocks + " blocks" + "<br />" + $history;
+          "Epoch " +
+          data[i].epoch +
+          " - 0" +
+          "/" +
+          data[i].blocks +
+          " blocks" +
+          "<br />" +
+          $history;
       } else {
         if (data[i].blocks != 0) {
-          if (data[i].epochSlots==0){
-            data[i].epochSlots =data[i].blocks
+          if (data[i].epochSlots == 0) {
+            data[i].epochSlots = data[i].blocks;
           }
-          $history = "Epoch " + data[i].epoch + " - " + data[i].blocks + "/" + data[i].epochSlots + " blocks " + ((data[i].epochSlots === data[i].blocks || data[i].blocks > data[i].epochSlots) ? (`<span>🌟</span>`) : ("")) + "<br />" + $history;
-        }
-        else {
-          $history = "Epoch " + data[i].epoch + " - " + data[i].blocks + "/" + data[i].epochSlots + " blocks" + "<br />" + $history;
+          $history =
+            "Epoch " +
+            data[i].epoch +
+            " - " +
+            data[i].blocks +
+            "/" +
+            data[i].epochSlots +
+            " blocks " +
+            (data[i].epochSlots === data[i].blocks ||
+            data[i].blocks > data[i].epochSlots
+              ? `<span>🌟</span>`
+              : "") +
+            "<br />" +
+            $history;
+        } else {
+          $history =
+            "Epoch " +
+            data[i].epoch +
+            " - " +
+            data[i].blocks +
+            "/" +
+            data[i].epochSlots +
+            " blocks" +
+            "<br />" +
+            $history;
         }
       }
       $rewards += data[i].value_for_stakers; //in lovelace
@@ -108,7 +136,6 @@ $(document).ready(() => {
   $(".ada-button").click(() => {
     $(".ada-button").toggleClass("toggle-show-ada-button");
     $(".price-container").toggleClass("show-ada");
-
   });
 
   getLiveStats();
