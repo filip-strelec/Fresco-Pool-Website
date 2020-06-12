@@ -213,6 +213,7 @@ iframe {
 .price-container {
   width: 178px;
   position: fixed;
+  top: 50px;
   /* transform: translateX(-178px); */
   transition: 0.3s all;
   transform: translateX(-180px);
