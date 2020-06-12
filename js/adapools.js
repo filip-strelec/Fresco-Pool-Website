@@ -81,6 +81,9 @@ $.getJSON(
           $history;
       } else {
         if (data[i].blocks != 0) {
+          if (data[i].epochSlots == 0) {
+            data[i].epochSlots = data[i].blocks;
+          }
           $history =
             "Epoch " +
             data[i].epoch +

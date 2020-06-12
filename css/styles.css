@@ -255,3 +255,7 @@ iframe {
   color: black;
   text-decoration: none;
 }
+
+.retired {
+  color: var(--dark-teal);
+}
