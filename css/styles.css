@@ -88,6 +88,7 @@ body {
 .individual-card {
   padding: 24px;
   min-width: 25%;
+  width:100%;
   text-align: center;
   font-size: 1.3rem;
   width: fit-content;
