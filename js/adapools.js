@@ -48,87 +48,80 @@ $.getJSON(
     );
   }
 );
-//livestats.json - iz ovog ide live stake, i lifetime blocks, a izgleda ovak {"livestake": 8733730395034, "updatedAt": 1588084002, "epochblocks": 2, "lifetimeblocks": 11, "lastBlockEpoch": 136}
-// $.getJSON("https://pooltool.s3-us-west-2.amazonaws.com/8e4d2a3/pools/bd1d1aafead6f652f76f5921b4ffdb429d7eb9d5322d0f4700f4f70f997c5a82/livestats.json").done((data) => {
-//   let $liveStake = data.livestake; //in lovelace
-//   let $lifetimeBlocks = data.lifetimeblocks;
-//   $liveStake = ($liveStake / 1000000 / 1000000).toFixed(2); //in million ADA
-//   $("#pool-total-stake").html($liveStake + " M");
-//   $("#pool-total-blocks").html($lifetimeBlocks);
-// })
+
 
 //epochstats.json  - iz ovog total rewards i performance history i ROI
-let $history = "";
-let $rewards = 0;
-let $roi = 0;
-let $epochCount = 0;
-let $averageStakePerEpoch = 0;
-$.getJSON(
-  "https://pooltool.s3-us-west-2.amazonaws.com/8e4d2a3/pools/bd1d1aafead6f652f76f5921b4ffdb429d7eb9d5322d0f4700f4f70f997c5a82/epochstats.json"
-).done(function (data) {
-  $.each(data, function (i, item) {
-    if (data[i].hasOwnProperty("epochSlots")) {
-      //history
-      if (data[i].epochSlots == null) {
-        $history =
-          "Epoch " +
-          data[i].epoch +
-          " - 0" +
-          "/" +
-          data[i].blocks +
-          " blocks" +
-          "<br />" +
-          $history;
-      } else {
-        if (data[i].blocks != 0) {
-          if (data[i].epochSlots == 0) {
-            data[i].epochSlots = data[i].blocks;
-          }
-          $history =
-            "Epoch " +
-            data[i].epoch +
-            " - " +
-            data[i].blocks +
-            "/" +
-            data[i].epochSlots +
-            " blocks " +
-            (data[i].epochSlots === data[i].blocks ||
-            data[i].blocks > data[i].epochSlots
-              ? `<span>🌟</span>`
-              : "") +
-            "<br />" +
-            $history;
-        } else {
-          $history =
-            "Epoch " +
-            data[i].epoch +
-            " - " +
-            data[i].blocks +
-            "/" +
-            data[i].epochSlots +
-            " blocks" +
-            "<br />" +
-            $history;
-        }
-      }
-      $rewards += data[i].value_for_stakers; //in lovelace
-      $averageStakePerEpoch += data[i].blockstake; //in lovelace
-      $epochCount++;
-    }
-  });
+// let $history = "";
+// let $rewards = 0;
+// let $roi = 0;
+// let $epochCount = 0;
+// let $averageStakePerEpoch = 0;
+// $.getJSON(
+//   "https://pooltool.s3-us-west-2.amazonaws.com/8e4d2a3/pools/bd1d1aafead6f652f76f5921b4ffdb429d7eb9d5322d0f4700f4f70f997c5a82/epochstats.json"
+// ).done(function (data) {
+//   $.each(data, function (i, item) {
+//     if (data[i].hasOwnProperty("epochSlots")) {
+//       //history
+//       if (data[i].epochSlots == null) {
+//         $history =
+//           "Epoch " +
+//           data[i].epoch +
+//           " - 0" +
+//           "/" +
+//           data[i].blocks +
+//           " blocks" +
+//           "<br />" +
+//           $history;
+//       } else {
+//         if (data[i].blocks != 0) {
+//           if (data[i].epochSlots == 0) {
+//             data[i].epochSlots = data[i].blocks;
+//           }
+//           $history =
+//             "Epoch " +
+//             data[i].epoch +
+//             " - " +
+//             data[i].blocks +
+//             "/" +
+//             data[i].epochSlots +
+//             " blocks " +
+//             (data[i].epochSlots === data[i].blocks ||
+//             data[i].blocks > data[i].epochSlots
+//               ? `<span>🌟</span>`
+//               : "") +
+//             "<br />" +
+//             $history;
+//         } else {
+//           $history =
+//             "Epoch " +
+//             data[i].epoch +
+//             " - " +
+//             data[i].blocks +
+//             "/" +
+//             data[i].epochSlots +
+//             " blocks" +
+//             "<br />" +
+//             $history;
+//         }
+//       }
+//       $rewards += data[i].value_for_stakers; //in lovelace
+//       $averageStakePerEpoch += data[i].blockstake; //in lovelace
+//       $epochCount++;
+//     }
+//   });
 
-  //calculate roi
-  $averageStakePerEpoch = $averageStakePerEpoch / $epochCount;
-  $roi = $rewards / $averageStakePerEpoch;
-  $roi = ((Math.pow($roi + 1, 1 / ($epochCount / 365)) - 1) * 100).toFixed(1);
-  $("#pool-roi").html($roi + " %");
+//   //calculate roi
+//   $averageStakePerEpoch = $averageStakePerEpoch / $epochCount;
+//   $roi = $rewards / $averageStakePerEpoch;
+//   $roi = ((Math.pow($roi + 1, 1 / ($epochCount / 365)) - 1) * 100).toFixed(1);
+//   $("#pool-roi").html($roi + " %");
 
-  //calculate rewards in k ADA
-  $rewards = ($rewards / 1000000 / 1000).toFixed(1);
-  $("#pool-reward-value").html($rewards + " k ADA");
+//   //calculate rewards in k ADA
+//   $rewards = ($rewards / 1000000 / 1000).toFixed(1);
+//   $("#pool-reward-value").html($rewards + " k ADA");
 
-  $("#history").html($history);
-});
+//   $("#history").html($history);
+// });
 
 //script for scroll
 
