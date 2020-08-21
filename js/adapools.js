@@ -14,6 +14,22 @@
 ); */
 //livestats.json - iz ovog ide live stake, i lifetime blocks, a izgleda ovak {"livestake": 8733730395034, "updatedAt": 1588084002, "epochblocks": 2, "lifetimeblocks": 11, "lastBlockEpoch": 136}
 
+
+let rho;
+let tau;
+let decentralisationParam;
+let blocks;
+let kParameter = 150;
+let MaxAdaSupply = 45000000000;
+let TotalAdaSupply = 31700000000;
+let TotalAwardsAvailable;
+let RewardsAfterTreasury;
+let TotalActiveStake;
+let FrescoActiveStake;
+let FrescoBlocksProduced;
+let FrescoActiveStake;
+let RelativeBlocksProduced;
+let RelativeActiveStake;
 async function getLiveStats() {
   let response = await fetch(
     "https://js.adapools.org/pools/19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253/summary.json",
@@ -32,13 +48,14 @@ async function getLiveStats() {
     let json = await response.json();
     let activeStake = json.data.active_stake
     let blocksEpoch = parseInt(json.data.blocks_epoch);
+    FrescoBlocksProduced = blocksEpoch;
     let blocksEstimated = json.data.blocks_estimated;
     let blocksLifetime = parseInt(json.data.blocks_lifetime);
     // let delegators = json.data.delegators
     let totalStake = parseFloat(json.data.total_stake)
     let roa =  parseFloat(json.data.roa)
-    console.log(activeStake)
-    console.log(json)
+    // console.log(activeStake)
+    // console.log(json)
 
 
     // $liveStake = ($liveStake / 1000000 / 1000000).toFixed(2); //in million ADA
@@ -58,6 +75,66 @@ async function getLiveStats() {
     console.log("HTTP-Error: " + response.status);
   }
 }
+
+
+
+const calculateRewards =()=>{
+
+  RelativeBlocksProduced = FrescoBlocksProduced/blocks
+RelativeActiveStake = FrescoActiveStake/TotalActiveStake
+}
+
+
+
+async function getParameterStats() {
+  let response = await fetch(
+    "https://js.adapools.org/protocol.json",
+    {
+      method: "GET",
+      // headers: {
+      //   'Content-Type': 'application/json;charset=utf-8',
+
+      // },
+    }
+  );
+
+  if (response.ok) {
+    // if HTTP-status is 200-299
+    // get the response body (the method explained below)
+    let json = await response.json();
+     rho = json.rho
+     tau = json.tau;
+     decentralisationParam = json.decentralisationParam
+     blocks =  21600 * (1-decentralisationParam);
+     TotalAwardsAvailable = rho* (MaxAdaSupply-TotalAdaSupply)
+     RewardsAfterTreasury = TotalAwardsAvailable*(1-tau)
+    console.log(rho, tau, decentralisationParam)
+console.log(json)
+
+
+
+    
+    // $(".ROAClass").html(roa);
+
+
+    // $("#pool-total-blocks").html($lifetimeBlocks);
+  } else {
+    console.log("HTTP-Error: " + response.status);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 $.getJSON(
   "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=Ada&tsyms=BTC,USD,EUR&api_key=da5c2209128482ded3f5dabbe7260d828b351b7a62c6fc18a5f41fc8f336f12e",
@@ -156,6 +233,7 @@ $(document).ready(() => {
     $(".spinner").css("transform", `rotate(90deg) scale(1)`);
 
     setTimeout(() => {
+      getParameterStats();
       $(".spinner").css("transform", `rotate(0deg) scale(1)`);
 
       setTimeout(() => {

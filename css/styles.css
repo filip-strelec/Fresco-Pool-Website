@@ -170,7 +170,7 @@ body {
   .logo-container {
   
 
-    height: 290px;
+    height: 310px;
   }
 }
 
@@ -322,5 +322,61 @@ iframe {
     padding: 0px 40px;
     font-size: 24px;
   }
+
+  .info-grid {
+
+    grid-template-columns: repeat(auto-fit, minmax(332px, 1fr));
+
+  }
+
+  
+
+  
+}
+
+
+
+
+.rewards-header{
+
+width: 100%;
+}
+
+
+.cur-stats{
+
+margin-top: 42px;
+
+}
+
+
+.rewards-calculator-container{
+  background-color: var(--dark-teal);
+  color: var(--bg-black);
+  font-weight: 600;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
+.rewards-calculator{
+  margin-top:32px;
+  width: 700px;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 32px;
+}
+
+@media only screen and (max-width: 760px) {
+  .rewards-calculator{
+    width: calc(100vw - 64px);
+
+  }
+  
+
   
 }
