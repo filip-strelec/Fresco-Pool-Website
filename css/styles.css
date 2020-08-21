@@ -6,6 +6,12 @@
   --bg-light-black: #1f2833;
 }
 
+
+
+.pool-id{
+
+  word-break: break-all;
+}
 html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -23,7 +29,7 @@ html {
 .header-container {
   display: flex;
   width: 100%;
-  user-select: none;
+
 }
 
 .maintenance-title {
@@ -31,7 +37,8 @@ html {
   font-weight: 700;
   padding: 12px 24px;
   text-align: center;
-  font-size: 2rem;
+  font-size: 4rem;
+  margin-top:0px;
   color: var(--main-teal);
 }
 
@@ -43,7 +50,11 @@ html {
 
 .individual-info {
   padding: 8px;
-  overflow-wrap: break-word;
+ word-break: break-all;
+  height:75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .logo-container {
@@ -61,7 +72,7 @@ html {
 
 .static_logo {
   filter: drop-shadow(0px 0px 40px var(--main-teal));
-  transition: 0.1s all;
+  transition: 0.5s all;
 }
 .spinner {
   transition: 0.5s all;
@@ -91,21 +102,37 @@ body {
   width:100%;
   text-align: center;
   font-size: 1.3rem;
-  width: fit-content;
+ 
 }
 .individual-card .card-header {
-  min-height: 70px;
+  height: 75px;
   color: var(--main-teal);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .individual-card p {
   word-wrap: break-word;
 }
 
+
+.infoStake{
+  transform: translateY(-12px);
+  
+    }
 @media (max-width: 1055px) {
   .specification-card-container {
     flex-direction: column;
   }
+
+
+
+.infoStake{
+  transform: translateY(0px);
+  
+    }
+
 
   .logo-container {
     width: 80%;
@@ -134,6 +161,29 @@ body {
     height: 500px;
   }
 }
+
+
+
+@media (max-width: 468px) {
+
+
+  .logo-container {
+  
+
+    height: 290px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 a {
   color: var(--main-teal);
@@ -194,9 +244,12 @@ iframe {
 }
 
 @media only screen and (max-width: 670px) {
-  iframe {
-    width: 75%;
-    height: 300px;
+
+
+  .maintenance-title {
+
+    font-size: 2rem;
+
   }
 }
 

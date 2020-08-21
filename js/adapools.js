@@ -16,7 +16,7 @@
 
 async function getLiveStats() {
   let response = await fetch(
-    "https://pooltool.s3-us-west-2.amazonaws.com/8e4d2a3/pools/bd1d1aafead6f652f76f5921b4ffdb429d7eb9d5322d0f4700f4f70f997c5a82/livestats.json",
+    "https://js.adapools.org/pools/19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253/summary.json",
     {
       method: "GET",
       // headers: {
@@ -30,11 +30,30 @@ async function getLiveStats() {
     // if HTTP-status is 200-299
     // get the response body (the method explained below)
     let json = await response.json();
-    let $liveStake = json.livestake; //in lovelace
-    let $lifetimeBlocks = json.lifetimeblocks;
-    $liveStake = ($liveStake / 1000000 / 1000000).toFixed(2); //in million ADA
-    $("#pool-total-stake").html($liveStake + " M");
-    $("#pool-total-blocks").html($lifetimeBlocks);
+    let activeStake = json.data.active_stake
+    let blocksEpoch = parseInt(json.data.blocks_epoch);
+    let blocksEstimated = json.data.blocks_estimated;
+    let blocksLifetime = parseInt(json.data.blocks_lifetime);
+    // let delegators = json.data.delegators
+    let totalStake = parseFloat(json.data.total_stake)
+    let roa =  parseFloat(json.data.roa)
+    console.log(activeStake)
+    console.log(json)
+
+
+    // $liveStake = ($liveStake / 1000000 / 1000000).toFixed(2); //in million ADA
+    $(".blocks-produced").html(blocksEpoch+blocksLifetime);
+    $(".total-stake").html((totalStake/ 1000000 / 1000000).toFixed(2)+" M");
+    $(".active-stake").html((activeStake/ 1000000 / 1000000).toFixed(2)+" M");
+    $(".blocks-estimated").html((blocksEstimated))
+    $(".blocks-produced-current").html(blocksEpoch);
+
+
+    
+    // $(".ROAClass").html(roa);
+
+
+    // $("#pool-total-blocks").html($lifetimeBlocks);
   } else {
     console.log("HTTP-Error: " + response.status);
   }
@@ -143,8 +162,8 @@ $(document).ready(() => {
         $(window).scroll(() => {
           var scrollPos = $(document).scrollTop();
 
-          $(".static_logo").css("transform", `rotate(${scrollPos * 0.3}deg)`);
-          // $(".static_logo").css("filter", `hue-rotate(${scrollPos*1}deg)`)
+          $(".static_logo").css("transform", `rotate(${scrollPos * 0.3}deg) `);
+          // $(".static_logo").css("filter", `hue-rotate(${scrollPos*1}deg) drop-shadow(0px 0px 40px var(--main-teal))`)
 
           // $(".logo_component").css("filter", `hue-rotate(${scrollPos*1}deg)`)
           // $(".logo_component").css("filter", `grayscale(${scrollPos*0.1})`)

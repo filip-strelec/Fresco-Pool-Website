@@ -22,6 +22,12 @@
   <body>
     <canvas id="c"></canvas>
 
+    <div class="header-container">
+
+        <h1 class ="maintenance-title">FRESCO STAKE POOL</h1>
+       
+    </div>
+
 
     <div class="price-container">
       <div class="grid-header">Current Price</div>
@@ -58,21 +64,25 @@
             </div>
             <p>
               Fresco pool is operated on Digital Ocean Droplets offering 99.99%
-              server uptime.
+              server uptime.</p><p> Currently active: 1 block producer node and 2 relay nodes
             </p>
           </div>
         </div>
 
-        <div class="individual-card server-location">
+        <div class="individual-card server-location ">
           <div>
-            <div class="card-header">
+            <div class="card-header ">
               <h2>STAKE POOL INFORMATION</h2>
             </div>
             <p>
-              Ticker: [VENUS] <br />
-              Name: Fresco Pool<br />
-              Pledge planned: 70,000 ADA
-            </p>
+              Ticker: [VENUS] <br /> </p>
+              POOL ID: <br/>  <span class="pool-id"> 19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253</span>
+
+              <p>   Name: Fresco Pool<br /> </p>
+              <p> Pledge: 70,000 ₳<br /></p>
+            <p>Fixed fee: 340 ₳<br /></p>
+          <p> Margin tax: 0%</p>
+           
           </div>
         </div>
 
@@ -83,7 +93,7 @@
             </div>
             <p>
               I am a software developer from Croatia that fell in love with
-              Cardano project on first sight. Feel free to follow me on
+              Cardano project on first sight.</p><p> Feel free to follow me on
               <a href="https://twitter.com/PoolVenus" target="_blank">Twitter</a
               >, or get in touch directly via pools
               <a href="https://t.me/frescopool" target="_blank">Telegram</a>
@@ -104,83 +114,86 @@
       </div> -->
 
       <div class="pool-details">
-        <div class="more-info">
-       
-        </div>
+        
         <div class="info-grid">
           <div class="grid-element">
             <div class="grid-header">
-              <h3>Ticker</h3>
+              <h3>Blocks Produced</h3>
             </div>
-            <div class="individual-info">VENUS</div>
+            <div class="individual-info blocks-produced margin-top">VENUS</div>
           </div>
 
           <div class="grid-element">
             <div class="grid-header">
-              <h3>Live Stake</h3>
+              <h3>Total Stake</h3>
             </div>
-            <div class="individual-info">
-              <span id="pool-total-stake"></span>
-            </div>
-          </div>
-
-          <div class="grid-element">
-            <div class="grid-header">
-              <h3>Lifetime Rewards</h3>
-            </div>
-            <div class="individual-info">
-              <span id="pool-reward-value"></span>
+            <div class="individual-info total-stake ">
+          
             </div>
           </div>
 
           <div class="grid-element">
             <div class="grid-header">
-              <h3>Fees</h3>
+              <h3>ROA (30 days) </h3>
             </div>
-            <div class="individual-info">
-              Fixed: <span id="pool-tax-fixed"></span>0 ADA | Tax:
-              <span id="pool-tax">0%</span>
+            <div class="individual-info ROAClass">
+
+             No rewards yet
+            </div>
+          </div>
+        </div>
+
+        <h3>Stats for current Epoch</h3>
+        <div class="info-grid">
+          <div class="grid-element">
+            <div class="grid-header">
+              <h3>Active Stake</h3>
+            </div>
+            <div class="individual-info active-stake">
+            
             </div>
           </div>
 
           <div class="grid-element">
             <div class="grid-header">
-              <h3>Lifetime Blocks</h3>
+              <h3>Blocks Estimated</h3>
             </div>
-            <div class="individual-info">
-              <span id="pool-total-blocks"></span>
+            <div class="individual-info blocks-estimated">
+          
             </div>
           </div>
       
 
         <div class="grid-element">
             <div class="grid-header">
-              <h3>ROI (annualized)</h3>
+              <h3>Blocks Produced</h3>
             </div>
-            <div class="individual-info">
+            <div class="individual-info blocks-produced-current">
               <span id="pool-roi"></span>
             </div>
           </div>
         </div>
+      </div>
+        
 
         <div class="more-info">
           More information available on
           <a
-            href="https://adapools.org/bd1d1aafead6f652f76f5921b4ffdb429d7eb9d5322d0f4700f4f70f997c5a82"
+            href="https://adapools.org/pool/19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253"
             target="_blank"
             >AdaPools</a
           >
           and
           <a
-            href="https://pooltool.io/pool/bd1d1aafead6f652f76f5921b4ffdb429d7eb9d5322d0f4700f4f70f997c5a82/history"
+            href="https://pooltool.io/pool/19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253/blocks"
             target="_blank"
             >PoolTool</a
           >.
         </div>
       </div>
       <div class="history-container">
-        <h2 id="history-header">Performance history (ITN)</h2>
-        <div id="history"></div>
+        <!-- <h2 id="history-header">Performance history (ITN)</h2>
+        <div id="history"></div> -->
       </div>
     </main>
   </body>
