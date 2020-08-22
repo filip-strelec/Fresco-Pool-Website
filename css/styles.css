@@ -154,6 +154,7 @@ body {
   .individual-card {
     width: 100%;
     padding: unset;
+    margin-bottom: 24px;
   }
 
   .logo-container {
@@ -326,7 +327,7 @@ iframe {
 
   .info-grid {
 
-    grid-template-columns: repeat(auto-fit, minmax(332px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 
   }
 
