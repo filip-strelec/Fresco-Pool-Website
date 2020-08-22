@@ -120,10 +120,22 @@ else{
  realRewards = (optimalRewards*apparentPoolPerformance).toFixed(2)
 }
 let rewardsTaxed =   (realRewards-340).toFixed(2)
+if (realRewards<=0){
+
+  realRewards=0;
+  rewardsTaxed = 0;
+}
+
+let usersReward = (yourActiveStake/FrescoActiveStake)*(rewardsTaxed)
+
+if (usersReward >=realRewards){
+
+  usersReward = realRewards;
+}
 
 $(".realRewards").html(`Total estimated rewards calculation: ${realRewards}`);
 $(".rewardsTax").html(`Total estimated rewards calculation after tax: ${rewardsTaxed}`);
-$(".rewardsTaxUser").html(`Your estimated rewards: ${(yourActiveStake/FrescoActiveStake)*(rewardsTaxed)}`);
+$(".rewardsTaxUser").html(`Your estimated rewards: ${(usersReward)}`);
 
 
 
