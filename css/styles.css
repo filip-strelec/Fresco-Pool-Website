@@ -216,12 +216,14 @@ a {
 
 .more-info {
   overflow-wrap: break-word;
+  margin-left: 8px;
 }
 
 .history-container {
   margin: auto;
   text-align: center;
   max-width: 250px;
+  margin-bottom: 20px;
 }
 #history-header {
   color: var(--main-teal);
