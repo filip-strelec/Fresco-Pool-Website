@@ -75,7 +75,7 @@ html {
   transition: 0.2s all;
 }
 .spinner {
-  transition: 0.2s all;
+  transition: 0.4s all;
   transform: rotate(90deg) scale(1.5);
 }
 body {
