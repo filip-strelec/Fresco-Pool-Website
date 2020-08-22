@@ -167,8 +167,8 @@ async function getParameterStats() {
      decentralisationParam = json.decentralisationParam
      blocks =  21600 * (1-decentralisationParam);
     
-    console.log(rho, tau, decentralisationParam, a0, kParameter)
-console.log(json)
+//     console.log(rho, tau, decentralisationParam, a0, kParameter)
+// console.log(json)
 
 
 
@@ -299,7 +299,7 @@ $(document).ready(() => {
     document.querySelectorAll(".inputParam").forEach((element)=>{
 
       element.addEventListener('input', calculateRewards)
-      console.log(element)
+      // console.log(element)
       })
       
 
