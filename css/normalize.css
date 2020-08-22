@@ -171,6 +171,8 @@
     font-size: 100%; /* 1 */
     line-height: 1.15; /* 1 */
     margin: 0; /* 2 */
+    background-color: var(--bg-light-black);
+    color: var(--main-teal);
   }
   
   /**

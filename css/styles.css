@@ -106,6 +106,7 @@ body {
 }
 .individual-card .card-header {
   height: 50px;
+  margin-bottom:20px;
   color: var(--main-teal);
       display: flex;
     justify-content: center;
@@ -371,10 +372,37 @@ margin-top: 42px;
   margin-bottom: 32px;
 }
 
+.parameter-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin:16px 16px;
+}
+.rewards{
+  margin:12px 0;
+}
+
+
+.disclamer {
+
+  font-size: 12px;
+  margin-top: 24px;
+}
+.rewards-container{
+
+  margin: 16px 16px
+}
+
 @media only screen and (max-width: 760px) {
   .rewards-calculator{
     width: calc(100vw - 64px);
 
+  }
+
+  .parameter-container{
+  
+    flex-direction: column;
+   
   }
   
 

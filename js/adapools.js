@@ -19,7 +19,7 @@ let rho;
 let tau;
 let decentralisationParam;
 let blocks;
-let kParameter = 150;
+let kParameter ;
 let MaxAdaSupply = 45000000000;
 let TotalAdaSupply = 31700000000;
 let TotalAwardsAvailable;
@@ -27,9 +27,11 @@ let RewardsAfterTreasury;
 let TotalActiveStake;
 let FrescoActiveStake;
 let FrescoBlocksProduced;
-let FrescoActiveStake;
 let RelativeBlocksProduced;
 let RelativeActiveStake;
+let a0;
+let myPledge = 70000;
+let apparentPoolPerformance;
 async function getLiveStats() {
   let response = await fetch(
     "https://js.adapools.org/pools/19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253/summary.json",
@@ -56,6 +58,8 @@ async function getLiveStats() {
     let roa =  parseFloat(json.data.roa)
     // console.log(activeStake)
     // console.log(json)
+    $('.currentEpochBlock').val(blocksEpoch)
+    $('.activeStakeFresco').val(activeStake/1000000)
 
 
     // $liveStake = ($liveStake / 1000000 / 1000000).toFixed(2); //in million ADA
@@ -80,9 +84,51 @@ async function getLiveStats() {
 
 const calculateRewards =()=>{
 
-  RelativeBlocksProduced = FrescoBlocksProduced/blocks
+ 
+
+TotalActiveStake =     $('.activeStakeTotal').val()
+FrescoActiveStake =  $('.activeStakeFresco').val()
+TotalAdaSupply = $('.totalSupplyInput').val()
+FrescoBlocksProduced =$('.currentEpochBlock').val()
+let yourActiveStake = $('.activeStakeUser').val()
+let totalReserves = MaxAdaSupply-TotalAdaSupply;
+RelativeBlocksProduced = FrescoBlocksProduced/blocks
 RelativeActiveStake = FrescoActiveStake/TotalActiveStake
+TotalAwardsAvailable = totalReserves*rho
+RewardsAfterTreasury = TotalAwardsAvailable*(1-tau)
+let s = (70000/TotalAdaSupply);
+let sigma = (FrescoActiveStake/TotalAdaSupply);
+let saturationPoint = 1/kParameter
+if (decentralisationParam >=0.8){
+
+  apparentPoolPerformance = 1
 }
+
+else {
+  apparentPoolPerformance = RelativeBlocksProduced/RelativeActiveStake
+
+}
+
+let realRewards;
+ let optimalRewards =(RewardsAfterTreasury/(1+a0)) * (sigma + (sigma * a0) * (sigma - (s * ((saturationPoint - sigma)/saturationPoint)))/saturationPoint);
+if (FrescoBlocksProduced <1){
+   realRewards = 0
+
+
+}
+else{
+ realRewards = (optimalRewards*apparentPoolPerformance).toFixed(2)
+}
+let rewardsTaxed =   (realRewards-340).toFixed(2)
+
+$(".realRewards").html(`Total estimated rewards calculation: ${realRewards}`);
+$(".rewardsTax").html(`Total estimated rewards calculation after tax: ${rewardsTaxed}`);
+$(".rewardsTaxUser").html(`Your estimated rewards: ${(yourActiveStake/FrescoActiveStake)*(rewardsTaxed)}`);
+
+
+
+}
+
 
 
 
@@ -104,11 +150,12 @@ async function getParameterStats() {
     let json = await response.json();
      rho = json.rho
      tau = json.tau;
+     a0 = json.a0
+     kParameter = json.nOpt
      decentralisationParam = json.decentralisationParam
      blocks =  21600 * (1-decentralisationParam);
-     TotalAwardsAvailable = rho* (MaxAdaSupply-TotalAdaSupply)
-     RewardsAfterTreasury = TotalAwardsAvailable*(1-tau)
-    console.log(rho, tau, decentralisationParam)
+    
+    console.log(rho, tau, decentralisationParam, a0, kParameter)
 console.log(json)
 
 
@@ -231,6 +278,26 @@ $(document).ready(() => {
 
   setTimeout(() => {
     $(".spinner").css("transform", `rotate(90deg) scale(1)`);
+
+
+
+
+
+
+    document.querySelectorAll(".inputParam").forEach((element)=>{
+
+      element.addEventListener('input', calculateRewards)
+      console.log(element)
+      })
+      
+
+
+
+
+
+
+
+
 
     setTimeout(() => {
       getParameterStats();
