@@ -1,5 +1,5 @@
 # Fresco Stake Pool Website
-Pool Website -https://frescopool.com/
+Pool Website -https://frescopool.cc/
 
 ## This is a blockchain project I built from the ground up.
 
