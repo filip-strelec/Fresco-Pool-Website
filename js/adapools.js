@@ -69,9 +69,12 @@ async function getLiveStats() {
     $(".blocks-estimated").html((blocksEstimated))
     $(".blocks-produced-current").html(blocksEpoch);
 
+console.log(roa);
+    if (roa!=0){
+      $(".ROAClass").html(roa);
 
-    
-    // $(".ROAClass").html(roa);
+
+    }
 
 
     // $("#pool-total-blocks").html($lifetimeBlocks);
