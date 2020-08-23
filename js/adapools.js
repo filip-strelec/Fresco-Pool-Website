@@ -69,7 +69,6 @@ async function getLiveStats() {
     $(".blocks-estimated").html((blocksEstimated))
     $(".blocks-produced-current").html(blocksEpoch);
 
-console.log(roa);
     if (roa!=0){
       $(".ROAClass").html(roa);
 
