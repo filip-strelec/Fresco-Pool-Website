@@ -63,8 +63,8 @@ async function getLiveStats() {
 
 
     // $liveStake = ($liveStake / 1000000 / 1000000).toFixed(2); //in million ADA
-    // $(".blocks-produced").html(blocksEpoch+blocksLifetime);
-    $(".blocks-produced").html("9");
+     $(".blocks-produced").html(blocksEpoch+blocksLifetime);
+
 
     $(".total-stake").html((totalStake/ 1000000 / 1000000).toFixed(2)+" M");
     $(".active-stake").html((activeStake/ 1000000 / 1000000).toFixed(2)+" M");
