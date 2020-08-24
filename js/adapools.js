@@ -21,7 +21,7 @@ let decentralisationParam;
 let blocks;
 let kParameter ;
 let MaxAdaSupply = 45000000000;
-let TotalAdaSupply = 31700000000;
+let TotalAdaSupply;
 let TotalAwardsAvailable;
 let RewardsAfterTreasury;
 let TotalActiveStake;
@@ -32,6 +32,46 @@ let RelativeActiveStake;
 let a0;
 let myPledge = 70000;
 let apparentPoolPerformance;
+
+
+
+
+
+
+
+async function getGlobalStats() {
+  let response = await fetch(
+  "https://js.adapools.org/global.json",
+    {
+      method: "GET",
+      // headers: {
+      //   'Content-Type': 'application/json;charset=utf-8',
+
+      // },
+    }
+  );
+
+  if (response.ok) {
+   
+    let json = await response.json();
+    let totalStaked = parseFloat(json.total_staked_active)/1000000;
+    let adaCirc = parseFloat(json.ada_circ)/1000000;
+
+    $('.activeStakeTotal').val(Math.floor(totalStaked))
+    $('.totalSupplyInput').val(adaCirc)
+    $('.rewards-header').html(`Rewards calculator for current Epoch (${json.epoch_last})`)
+    $('.cur-stats').html(`Stats for current Epoch (${json.epoch_last})`)
+
+console.log(json)
+
+  } else {
+    console.log("HTTP-Error: " + response.status);
+  }
+}
+
+
+
+
 async function getLiveStats() {
   let response = await fetch(
     "https://js.adapools.org/pools/19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253/summary.json",
@@ -59,7 +99,7 @@ async function getLiveStats() {
     // console.log(activeStake)
     // console.log(json)
     $('.currentEpochBlock').val(blocksEpoch)
-    $('.activeStakeFresco').val(activeStake/1000000)
+    $('.activeStakeFresco').val(Math.floor(activeStake/1000000))
 
 
     // $liveStake = ($liveStake / 1000000 / 1000000).toFixed(2); //in million ADA
@@ -317,6 +357,8 @@ $(document).ready(() => {
 
     setTimeout(() => {
       getParameterStats();
+      getGlobalStats();
+      calculateRewards();
       $(".spinner").css("transform", `rotate(0deg) scale(1)`);
 
       setTimeout(() => {
