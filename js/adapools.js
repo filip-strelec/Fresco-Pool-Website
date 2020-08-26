@@ -62,7 +62,6 @@ async function getGlobalStats() {
     $('.rewards-header').html(`Rewards calculator for current Epoch (${json.epoch_last})`)
     $('.cur-stats').html(`Stats for current Epoch (${json.epoch_last})`)
 
-console.log(json)
 
   } else {
     console.log("HTTP-Error: " + response.status);
@@ -180,6 +179,10 @@ if (usersReward >=realRewards){
 $(".realRewards").html(`Total estimated rewards calculation: ${realRewards}`);
 $(".rewardsTax").html(`Total estimated rewards calculation after tax: ${rewardsTaxed}`);
 $(".rewardsTaxUser").html(`Your estimated rewards: ${(usersReward)}`);
+$(".estimatedROA").html(`Estimated ROA: ${((rewardsTaxed/FrescoActiveStake)*7200).toFixed(2)}%`);
+$(".expectedBlocks").html(`Blocks expected: ${(blocks*RelativeActiveStake).toFixed(1)}`);
+
+
 
 
 
@@ -358,10 +361,11 @@ $(document).ready(() => {
     setTimeout(() => {
       getParameterStats();
       getGlobalStats();
-      calculateRewards();
+     
       $(".spinner").css("transform", `rotate(0deg) scale(1)`);
 
       setTimeout(() => {
+        calculateRewards();
         $(window).scroll(() => {
           var scrollPos = $(document).scrollTop();
 
