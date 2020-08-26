@@ -158,6 +158,7 @@ RewardsAfterTreasury = TotalAwardsAvailable*(1-tau)
 let s = (70000/TotalAdaSupply);
 let sigma = (FrescoActiveStake/TotalAdaSupply);
 let saturationPoint = 1/kParameter
+
 if (decentralisationParam >=0.8){
 
   apparentPoolPerformance = 1
@@ -168,8 +169,12 @@ else {
 
 }
 
+
+
 let realRewards;
- let optimalRewards =(RewardsAfterTreasury/(1+a0)) * (sigma + (sigma * a0) * (sigma - (s * ((saturationPoint - sigma)/saturationPoint)))/saturationPoint);
+
+let  optimalRewards = (RewardsAfterTreasury/(1+a0)) * (sigma + (s * a0) * (sigma - (s * ((saturationPoint - sigma)/saturationPoint)))/saturationPoint)
+
 if (FrescoBlocksProduced <1){
    realRewards = 0
 
