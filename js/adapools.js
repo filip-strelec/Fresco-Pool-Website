@@ -200,7 +200,9 @@ if (usersReward >=realRewards){
 $(".realRewards").html(`Total estimated rewards calculation: ${realRewards}`);
 $(".rewardsTax").html(`Total estimated rewards calculation after tax: ${rewardsTaxed}`);
 $(".rewardsTaxUser").html(`Your estimated rewards: ${(usersReward).toFixed(2)}`);
-$(".estimatedROA").html(`Estimated ROA: ${((rewardsTaxed/FrescoActiveStake)*7200).toFixed(2)}%`);
+//$(".estimatedROA").html(`Estimated ROA: ${((rewardsTaxed/FrescoActiveStake)*7200).toFixed(2)}%`);
+  $(".estimatedROA").html(``);
+
 $(".expectedBlocks").html(`Blocks expected: ${(blocks*RelativeActiveStake).toFixed(1)}`);
 
 
