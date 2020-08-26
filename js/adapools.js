@@ -124,6 +124,22 @@ async function getLiveStats() {
 }
 
 
+let RegExpr = new RegExp(/^\d*\.?\d*$/); 
+
+function valid(elem) { 
+ let val = elem.value
+  if (RegExpr.test(elem.value)) { 
+      val = elem.value; 
+  } else { 
+      elem.value = val.substring(0,val.length-1); 
+ 
+  } 
+}
+
+
+
+
+
 
 const calculateRewards =()=>{
 
@@ -178,7 +194,7 @@ if (usersReward >=realRewards){
 
 $(".realRewards").html(`Total estimated rewards calculation: ${realRewards}`);
 $(".rewardsTax").html(`Total estimated rewards calculation after tax: ${rewardsTaxed}`);
-$(".rewardsTaxUser").html(`Your estimated rewards: ${(usersReward)}`);
+$(".rewardsTaxUser").html(`Your estimated rewards: ${(usersReward).toFixed(2)}`);
 $(".estimatedROA").html(`Estimated ROA: ${((rewardsTaxed/FrescoActiveStake)*7200).toFixed(2)}%`);
 $(".expectedBlocks").html(`Blocks expected: ${(blocks*RelativeActiveStake).toFixed(1)}`);
 
