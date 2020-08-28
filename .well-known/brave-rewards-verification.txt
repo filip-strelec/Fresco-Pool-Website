@@ -1,4 +1,0 @@
-This is a Brave Rewards publisher verification file.
-
-Domain: frescopool.com
-Token: 1a6f67e2580bf1cd992afe33f1b2ab6c6c7a51d2dfe1477d9252b669742e8c40
