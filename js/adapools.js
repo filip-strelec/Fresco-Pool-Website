@@ -111,7 +111,7 @@ async function getLiveStats() {
     $(".blocks-produced-current").html(blocksEpoch);
 
     if (roa!=0){
-      $(".ROAClass").html(roa+" %");
+   //   $(".ROAClass").html(roa+" %");
 
 
     }
