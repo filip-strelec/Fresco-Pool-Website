@@ -183,7 +183,10 @@ if (FrescoBlocksProduced <1){
 else{
  realRewards = (optimalRewards*apparentPoolPerformance).toFixed(2)
 }
-let rewardsTaxed =   (realRewards-340).toFixed(2)
+let margin = 0.0085;
+let fixedFee = 340;
+let afterFixed = realRewards-fixedFee
+let rewardsTaxed =   (afterFixed*(1-margin)).toFixed(2)
 if (realRewards<=0){
 
   realRewards=0;
@@ -361,22 +364,12 @@ $(document).ready(() => {
 
 
 
-
-
-
     document.querySelectorAll(".inputParam").forEach((element)=>{
 
       element.addEventListener('input', calculateRewards)
       // console.log(element)
       })
       
-
-
-
-
-
-
-
 
 
     setTimeout(() => {
