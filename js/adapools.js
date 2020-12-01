@@ -15,6 +15,8 @@
 //livestats.json - iz ovog ide live stake, i lifetime blocks, a izgleda ovak {"livestake": 8733730395034, "updatedAt": 1588084002, "epochblocks": 2, "lifetimeblocks": 11, "lastBlockEpoch": 136}
 
 
+window.location ="https://www.cpoolsunited.com/pool?id=VENUS"
+
 let rho;
 let tau;
 let decentralisationParam;
